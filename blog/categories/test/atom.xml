@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Mz's Blog]]></title>
-  <link href="http://z420.github.io/atom.xml" rel="self"/>
+  <title><![CDATA[Category: test | Mz's Blog]]></title>
+  <link href="http://z420.github.io/blog/categories/test/atom.xml" rel="self"/>
   <link href="http://z420.github.io/"/>
   <updated>2013-11-13T22:12:08+08:00</updated>
   <id>http://z420.github.io/</id>
@@ -12,61 +12,6 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
-  
-  <entry>
-    <title type="html"><![CDATA[code test]]></title>
-    <link href="http://z420.github.io/blog/2013/11/11/code-test/"/>
-    <updated>2013-11-11T22:06:00+08:00</updated>
-    <id>http://z420.github.io/blog/2013/11/11/code-test</id>
-    <content type="html"><![CDATA[<p>&lsquo;&rsquo;&lsquo;
-class Person{</p>
-
-<pre><code>private String name;
-private int age;
-public String getName(){
-    return name;
-}
-public void setName(String name){
-    this.name = name;
-}
-public int getAge(){
-    return age;
-}
-public void setAge(int age){
-    this.age = age;
-}
-</code></pre>
-
-<p>}</p>
-
-<p>class Student extends Person{</p>
-
-<pre><code>private String school;
-public String getSchool(){
-    return school;
-}
-public void setSchool(String school){
-    this.school = school;
-}
-</code></pre>
-
-<p>}
-public class ExtDemo03 {</p>
-
-<pre><code>public static void main(String[] args){
-    Student stu = new Student();
-    stu.setName("张");
-    stu.setAge(20);
-    stu.setSchool("bupt");
-    System.out.println("姓名：" + stu.getName() + " 年龄：" + stu.getAge() +
-            " 学校：" + stu.getSchool());
-}
-</code></pre>
-
-<p>}
-&lsquo;&rsquo;&#8217;</p>
-]]></content>
-  </entry>
   
   <entry>
     <title type="html"><![CDATA[不要去打扰别人的幸福]]></title>
