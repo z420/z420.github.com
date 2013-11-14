@@ -4,7 +4,7 @@
   <title><![CDATA[Mz's Blog]]></title>
   <link href="http://z420.github.io/atom.xml" rel="self"/>
   <link href="http://z420.github.io/"/>
-  <updated>2013-11-14T22:14:54+08:00</updated>
+  <updated>2013-11-14T22:20:38+08:00</updated>
   <id>http://z420.github.io/</id>
   <author>
     <name><![CDATA[Mz]]></name>
@@ -12,6 +12,22 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[使用final关键字的注意事项]]></title>
+    <link href="http://z420.github.io/blog/2013/11/14/final-tips/"/>
+    <updated>2013-11-14T22:16:00+08:00</updated>
+    <id>http://z420.github.io/blog/2013/11/14/final-tips</id>
+    <content type="html"><![CDATA[<p>使用final声明的类不能有子类。</p>
+
+
+<p>使用final声明的方法不能被子类所覆写。</p>
+
+
+<p>使用final声明的变量即成为常量，常量不可以修改。</p>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[方法的重载与覆写的区别]]></title>
