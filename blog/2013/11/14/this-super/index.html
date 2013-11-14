@@ -5,16 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>code test - Mz's Blog</title>
-  <meta name="author" content="z420">
+  <title>this和super的区别 - Mz's Blog</title>
+  <meta name="author" content="Mz">
 
   
-  <meta name="description" content="&lsquo;&rsquo;&lsquo;
-class Person{ private String name;
-private int age;
-public String getName(){ return name;
-}
-public void setName(String name){ &hellip;">
+  <meta name="description" content="
+">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -23,7 +19,7 @@ public void setName(String name){ &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://z420.github.io/blog/2013/11/11/code-test">
+  <link rel="canonical" href="http://z420.github.io/blog/2013/11/14/this-super">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Mz's Blog" type="application/atom+xml">
@@ -32,8 +28,6 @@ public void setName(String name){ &hellip;">
   <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
   <script src="/javascripts/octopress.js" type="text/javascript"></script>
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
-<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 
   
 
@@ -61,8 +55,9 @@ public void setName(String name){ &hellip;">
 </form>
   
 <ul class="main-navigation">
-  <li><a href="/">Blog</a></li>
-  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/">首页</a></li>
+  <li><a href="/blog/archives">归档</a></li>
+  <li><a href="/about">关于</a></li> 
 </ul>
 
 </nav>
@@ -73,7 +68,7 @@ public void setName(String name){ &hellip;">
   
   <header>
     
-      <h1 class="entry-title">Code Test</h1>
+      <h1 class="entry-title">This和super的区别</h1>
     
     
       <p class="meta">
@@ -89,7 +84,7 @@ public void setName(String name){ &hellip;">
   
 
 
-<time datetime="2013-11-11T22:06:00+08:00" pubdate data-updated="true">Nov 11<span>th</span>, 2013</time>
+<time datetime="2013-11-14T21:27:00+08:00" pubdate data-updated="true">Nov 14<span>th</span>, 2013</time>
         
            | <a href="#disqus_thread"
              data-disqus-identifier="http://z420.github.io">Comments</a>
@@ -99,53 +94,7 @@ public void setName(String name){ &hellip;">
   </header>
 
 
-<div class="entry-content"><p>&lsquo;&rsquo;&lsquo;
-class Person{</p>
-
-<pre><code>private String name;
-private int age;
-public String getName(){
-    return name;
-}
-public void setName(String name){
-    this.name = name;
-}
-public int getAge(){
-    return age;
-}
-public void setAge(int age){
-    this.age = age;
-}
-</code></pre>
-
-<p>}</p>
-
-<p>class Student extends Person{</p>
-
-<pre><code>private String school;
-public String getSchool(){
-    return school;
-}
-public void setSchool(String school){
-    this.school = school;
-}
-</code></pre>
-
-<p>}
-public class ExtDemo03 {</p>
-
-<pre><code>public static void main(String[] args){
-    Student stu = new Student();
-    stu.setName("张");
-    stu.setAge(20);
-    stu.setSchool("bupt");
-    System.out.println("姓名：" + stu.getName() + " 年龄：" + stu.getAge() +
-            " 学校：" + stu.getSchool());
-}
-</code></pre>
-
-<p>}
-&lsquo;&rsquo;&#8217;</p>
+<div class="entry-content"><p><img src="http://pic2.qnpic.com/doimg/z420/1c7fb5e7/"></p>
 </div>
 
 
@@ -154,7 +103,7 @@ public class ExtDemo03 {</p>
       
   
 
-<span class="byline author vcard">Posted by <span class="fn">z420</span></span>
+<span class="byline author vcard">Posted by <span class="fn">Mz</span></span>
 
       
 
@@ -168,8 +117,14 @@ public class ExtDemo03 {</p>
   
 
 
-<time datetime="2013-11-11T22:06:00+08:00" pubdate data-updated="true">Nov 11<span>th</span>, 2013</time>
+<time datetime="2013-11-14T21:27:00+08:00" pubdate data-updated="true">Nov 14<span>th</span>, 2013</time>
       
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/java/'>Java</a>
+  
+</span>
 
 
     </p>
@@ -186,6 +141,8 @@ public class ExtDemo03 {</p>
         <a class="basic-alignment left" href="/blog/2013/11/08/first/" title="Previous Post: 不要去打扰别人的幸福">&laquo; 不要去打扰别人的幸福</a>
       
       
+        <a class="basic-alignment right" href="/blog/2013/11/14/chongzaiyufuxie/" title="Next Post: 方法的重载与覆写的区别">方法的重载与覆写的区别 &raquo;</a>
+      
     </p>
   </footer>
 </article>
@@ -201,11 +158,15 @@ public class ExtDemo03 {</p>
 <aside class="sidebar">
   
     <section>
-  <h1>Recent Posts</h1>
+  <h1>最近发表</h1>
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/blog/2013/11/11/code-test/">Code Test</a>
+        <a href="/blog/2013/11/14/chongzaiyufuxie/">方法的重载与覆写的区别</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/11/14/this-super/">This和super的区别</a>
       </li>
     
       <li class="post">
@@ -221,24 +182,11 @@ public class ExtDemo03 {</p>
 <section> 
   <h1>文章分类</h1> 
 	<ul id="categories">
-    <li class='category'><a href='/blog/categories/test/'>test (1)</a></li>
+    <li class='category'><a href='/blog/categories/java/'>Java (2)</a></li>
+<li class='category'><a href='/blog/categories/others/'>Others (1)</a></li>
 
 	</ul>
-</section><section>
-  <h1>Recent Posts</h1>
-  <ul id="recent_posts">
-    
-      <li class="post">
-        <a href="/blog/2013/11/11/code-test/">Code Test</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/11/08/first/">不要去打扰别人的幸福</a>
-      </li>
-    
-  </ul>
 </section>
-
   
 </aside>
 
@@ -246,8 +194,9 @@ public class ExtDemo03 {</p>
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2013 - z420 -
+  Copyright &copy; 2013 - Mz -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+  <script src="http://s17.cnzz.com/stat.php?id=5728155&web_id=5728155" language="JavaScript"></script>
 </p>
 
 </footer>
@@ -258,8 +207,8 @@ public class ExtDemo03 {</p>
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://z420.github.io/blog/2013/11/11/code-test/';
-        var disqus_url = 'http://z420.github.io/blog/2013/11/11/code-test/';
+        var disqus_identifier = 'http://z420.github.io/blog/2013/11/14/this-super/';
+        var disqus_url = 'http://z420.github.io/blog/2013/11/14/this-super/';
         var disqus_script = 'embed.js';
       
     (function () {

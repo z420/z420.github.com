@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Java | Mz's Blog]]></title>
+  <link href="http://z420.github.io/blog/categories/java/atom.xml" rel="self"/>
+  <link href="http://z420.github.io/"/>
+  <updated>2013-11-14T22:14:54+08:00</updated>
+  <id>http://z420.github.io/</id>
+  <author>
+    <name><![CDATA[Mz]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[方法的重载与覆写的区别]]></title>
+    <link href="http://z420.github.io/blog/2013/11/14/chongzaiyufuxie/"/>
+    <updated>2013-11-14T22:09:00+08:00</updated>
+    <id>http://z420.github.io/blog/2013/11/14/chongzaiyufuxie</id>
+    <content type="html"><![CDATA[<p><img class="<a" src="href="http://pic2.qnpic.com/doimg/z420/30c8b2ad/">http://pic2.qnpic.com/doimg/z420/30c8b2ad/</a>"></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[this和super的区别]]></title>
+    <link href="http://z420.github.io/blog/2013/11/14/this-super/"/>
+    <updated>2013-11-14T21:27:00+08:00</updated>
+    <id>http://z420.github.io/blog/2013/11/14/this-super</id>
+    <content type="html"><![CDATA[<p><img class="<a" src="href="http://pic2.qnpic.com/doimg/z420/1c7fb5e7/">http://pic2.qnpic.com/doimg/z420/1c7fb5e7/</a>"></p>
+]]></content>
+  </entry>
+  
+</feed>

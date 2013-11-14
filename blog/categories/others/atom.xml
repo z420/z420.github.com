@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: test | Mz's Blog]]></title>
-  <link href="http://z420.github.io/blog/categories/test/atom.xml" rel="self"/>
+  <title><![CDATA[Category: Others | Mz's Blog]]></title>
+  <link href="http://z420.github.io/blog/categories/others/atom.xml" rel="self"/>
   <link href="http://z420.github.io/"/>
-  <updated>2013-11-13T22:12:08+08:00</updated>
+  <updated>2013-11-14T22:14:54+08:00</updated>
   <id>http://z420.github.io/</id>
   <author>
-    <name><![CDATA[z420]]></name>
+    <name><![CDATA[Mz]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
