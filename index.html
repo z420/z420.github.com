@@ -70,6 +70,65 @@
       
   <header>
     
+      <h1 class="entry-title"><a href="/blog/2013/11/15/interface/">Interface</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-11-15T10:56:00+08:00" pubdate data-updated="true">Nov 15<span>th</span>, 2013</time>
+        
+           | <a href="/blog/2013/11/15/interface/#disqus_thread"
+             data-disqus-identifier="http://z420.github.io/blog/2013/11/15/interface/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>接口中的抽象方法必须定义为public访问权限，如果省略public默认也为public不是default。</p>
+
+<p>一个子类可以同时实现多个接口，摆脱了Java的单继承局限。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>interface 接口名称{
+</span><span class='line'>  全局常量;
+</span><span class='line'>  抽象方法;
+</span><span class='line'>}
+</span><span class='line'>//实现接口
+</span><span class='line'>class 子类 implements 接口A,接口B,...{
+</span><span class='line'>
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2013/11/14/abstract-class/">抽象类</a></h1>
     
     
@@ -317,6 +376,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/11/15/interface/">Interface</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/11/14/abstract-class/">抽象类</a>
       </li>
     
@@ -332,10 +395,6 @@
         <a href="/blog/2013/11/14/this-super/">This和super的区别</a>
       </li>
     
-      <li class="post">
-        <a href="/blog/2013/11/08/first/">不要去打扰别人的幸福</a>
-      </li>
-    
   </ul>
 </section>
 
@@ -345,7 +404,7 @@
 <section> 
   <h1>文章分类</h1> 
 	<ul id="categories">
-    <li class='category'><a href='/blog/categories/java/'>Java (4)</a></li>
+    <li class='category'><a href='/blog/categories/java/'>Java (5)</a></li>
 <li class='category'><a href='/blog/categories/others/'>Others (1)</a></li>
 
 	</ul>

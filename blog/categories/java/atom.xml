@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Java | Mz's Blog]]></title>
   <link href="http://z420.github.io/blog/categories/java/atom.xml" rel="self"/>
   <link href="http://z420.github.io/"/>
-  <updated>2013-11-14T22:25:40+08:00</updated>
+  <updated>2013-11-15T14:25:39+08:00</updated>
   <id>http://z420.github.io/</id>
   <author>
     <name><![CDATA[Mz]]></name>
@@ -12,6 +12,39 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[interface]]></title>
+    <link href="http://z420.github.io/blog/2013/11/15/interface/"/>
+    <updated>2013-11-15T10:56:00+08:00</updated>
+    <id>http://z420.github.io/blog/2013/11/15/interface</id>
+    <content type="html"><![CDATA[<p>接口中的抽象方法必须定义为public访问权限，如果省略public默认也为public不是default。</p>
+
+<p>一个子类可以同时实现多个接口，摆脱了Java的单继承局限。
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>interface 接口名称{&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;pre>&lt;code>全局常量;
+</span><span class='line'>抽象方法;
+</span><span class='line'>&lt;/code>&lt;/pre>
+</span><span class='line'>
+</span><span class='line'>&lt;p>}
+</span><span class='line'>//实现接口
+</span><span class='line'>class 子类 implements 接口A,接口B,&hellip;{&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;p>}</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[抽象类]]></title>
