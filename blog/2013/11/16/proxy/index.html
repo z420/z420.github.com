@@ -5,12 +5,39 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>this和super的区别 - Mz's Blog</title>
+  <title>设计模式-代理设计 - Mz's Blog</title>
   <meta name="author" content="Mz">
 
   
-  <meta name="description" content="
-">
+  <meta name="description" content="代理设计：所谓的代理设计就是指由一个代理主题来操作真实主题，真实主题执行具体的业务操作，而代理主题负责其他相关业务的处理。 1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+interface &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +46,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://z420.github.io/blog/2013/11/14/this-super">
+  <link rel="canonical" href="http://z420.github.io/blog/2013/11/16/proxy">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Mz's Blog" type="application/atom+xml">
@@ -68,7 +95,7 @@
   
   <header>
     
-      <h1 class="entry-title">This和super的区别</h1>
+      <h1 class="entry-title">设计模式-代理设计</h1>
     
     
       <p class="meta">
@@ -84,7 +111,7 @@
   
 
 
-<time datetime="2013-11-14T21:27:00+08:00" pubdate data-updated="true">Nov 14<span>th</span>, 2013</time>
+<time datetime="2013-11-16T16:33:00+08:00" pubdate data-updated="true">Nov 16<span>th</span>, 2013</time>
         
            | <a href="#disqus_thread"
              data-disqus-identifier="http://z420.github.io">Comments</a>
@@ -94,7 +121,65 @@
   </header>
 
 
-<div class="entry-content"><p><img src="http://pic2.qnpic.com/doimg/z420/1c7fb5e7/"></p>
+<div class="entry-content"><p>代理设计：所谓的代理设计就是指由一个代理主题来操作真实主题，真实主题执行具体的业务操作，而代理主题负责其他相关业务的处理。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>interface Network{
+</span><span class='line'>  public void browse();
+</span><span class='line'>}
+</span><span class='line'>class Real implements Network{
+</span><span class='line'>  public void browse(){
+</span><span class='line'>      System.out.println("上网");
+</span><span class='line'>  }
+</span><span class='line'>}
+</span><span class='line'>class Proxy implements Network{
+</span><span class='line'>  private Network network;
+</span><span class='line'>  public Proxy(Network network){
+</span><span class='line'>      this.network = network;
+</span><span class='line'>  }
+</span><span class='line'>  public void check(){
+</span><span class='line'>      System.out.println("检查用户是否合法");
+</span><span class='line'>  }
+</span><span class='line'>  public void browse(){
+</span><span class='line'>      this.check();
+</span><span class='line'>      this.network.browse();
+</span><span class='line'>  }
+</span><span class='line'>}
+</span><span class='line'>public class ProxyDemo {
+</span><span class='line'>  public static void main(String[] args){
+</span><span class='line'>      Network net = null;
+</span><span class='line'>      net = new Proxy(new Real());
+</span><span class='line'>      net.browse();
+</span><span class='line'>  }
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
 </div>
 
 
@@ -117,7 +202,7 @@
   
 
 
-<time datetime="2013-11-14T21:27:00+08:00" pubdate data-updated="true">Nov 14<span>th</span>, 2013</time>
+<time datetime="2013-11-16T16:33:00+08:00" pubdate data-updated="true">Nov 16<span>th</span>, 2013</time>
       
 
 <span class="categories">
@@ -138,10 +223,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2013/11/08/first/" title="Previous Post: 不要去打扰别人的幸福">&laquo; 不要去打扰别人的幸福</a>
+        <a class="basic-alignment left" href="/blog/2013/11/16/adapter/" title="Previous Post: 设计模式-适配器设计">&laquo; 设计模式-适配器设计</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2013/11/14/chongzaiyufuxie/" title="Next Post: 方法的重载与覆写的区别">方法的重载与覆写的区别 &raquo;</a>
       
     </p>
   </footer>
@@ -215,8 +298,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://z420.github.io/blog/2013/11/14/this-super/';
-        var disqus_url = 'http://z420.github.io/blog/2013/11/14/this-super/';
+        var disqus_identifier = 'http://z420.github.io/blog/2013/11/16/proxy/';
+        var disqus_url = 'http://z420.github.io/blog/2013/11/16/proxy/';
         var disqus_script = 'embed.js';
       
     (function () {

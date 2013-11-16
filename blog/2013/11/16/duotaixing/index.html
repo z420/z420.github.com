@@ -1,0 +1,389 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>多态性 - Mz's Blog</title>
+  <meta name="author" content="Mz">
+
+  
+  <meta name="description" content="对象向上转型：父类 父类对象 = 子类实例;
+对象发生了向上转型关系后，所调用的方法一定是被子类覆写过的方法。 1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+//向上转型
+class A{ public &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://z420.github.io/blog/2013/11/16/duotaixing">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Mz's Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Mz's Blog</a></h1>
+  
+    <h2>临渊羡鱼,不如退而结网.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:z420.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">首页</a></li>
+  <li><a href="/blog/archives">归档</a></li>
+  <li><a href="/about">关于</a></li> 
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">多态性</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-11-16T16:24:00+08:00" pubdate data-updated="true">Nov 16<span>th</span>, 2013</time>
+        
+           | <a href="#disqus_thread"
+             data-disqus-identifier="http://z420.github.io">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>对象向上转型：父类 父类对象 = 子类实例;<br/>
+对象发生了向上转型关系后，所调用的方法一定是被子类覆写过的方法。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>//向上转型
+</span><span class='line'>class A{
+</span><span class='line'>  public void fun1(){
+</span><span class='line'>      System.out.println("A --> public void fun1(){}");
+</span><span class='line'>  }
+</span><span class='line'>  public void fun2(){
+</span><span class='line'>      this.fun1();
+</span><span class='line'>  }
+</span><span class='line'>}
+</span><span class='line'>class B extends A{
+</span><span class='line'>  public void fun1(){
+</span><span class='line'>      System.out.println("B --> public void fun1(){}");
+</span><span class='line'>  }
+</span><span class='line'>  public void fun3(){
+</span><span class='line'>      System.out.println("B --> public void fun3(){}");
+</span><span class='line'>  }
+</span><span class='line'>}
+</span><span class='line'>public class PolDemo01 {
+</span><span class='line'>  public static void main(String[] args){
+</span><span class='line'>      B b = new B();
+</span><span class='line'>      A a = b;
+</span><span class='line'>      a.fun1();
+</span><span class='line'>  }
+</span><span class='line'>}
+</span><span class='line'>//运行结果
+</span><span class='line'>B --> public void fun1(){}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>对象向下转型：子类 子类对象 = （子类）父类实例;<br/>
+在进行对象的向下转型前，必须首先发生对象向上转型，否者将出现对象转换异常。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>//向下转型
+</span><span class='line'>class A{
+</span><span class='line'>  public void fun1(){
+</span><span class='line'>      System.out.println("A --> public void fun1(){}");
+</span><span class='line'>  }
+</span><span class='line'>  public void fun2(){
+</span><span class='line'>      this.fun1();
+</span><span class='line'>  }
+</span><span class='line'>}
+</span><span class='line'>class B extends A{
+</span><span class='line'>  public void fun1(){
+</span><span class='line'>      System.out.println("B --> public void fun1(){}");
+</span><span class='line'>  }
+</span><span class='line'>  public void fun3(){
+</span><span class='line'>      System.out.println("B --> public void fun3(){}");
+</span><span class='line'>  }
+</span><span class='line'>}
+</span><span class='line'>public class PolDemo02 {
+</span><span class='line'>  public static void main(String[] args){
+</span><span class='line'>      A a = new B();               //向上转型，子类-->父类。
+</span><span class='line'>      B b = (B)a;                  //向下转型。
+</span><span class='line'>      b.fun1();
+</span><span class='line'>      b.fun2();
+</span><span class='line'>      b.fun3();
+</span><span class='line'>  }
+</span><span class='line'>}
+</span><span class='line'>//运行结果
+</span><span class='line'>B --> public void fun1(){}
+</span><span class='line'>B --> public void fun1(){}
+</span><span class='line'>B --> public void fun3(){}</span></code></pre></td></tr></table></div></figure>
+
+
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Mz</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-11-16T16:24:00+08:00" pubdate data-updated="true">Nov 16<span>th</span>, 2013</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/java/'>Java</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/11/16/funinclassobject/" title="Previous Post: Object类中的主要方法">&laquo; Object类中的主要方法</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2013/11/16/factory/" title="Next Post: 设计模式-工厂设计">设计模式-工厂设计 &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>最近发表</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/11/16/proxy/">设计模式-代理设计</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/11/16/adapter/">设计模式-适配器设计</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/11/16/factory/">设计模式-工厂设计</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/11/16/duotaixing/">多态性</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/11/16/funinclassobject/">Object类中的主要方法</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+<section> 
+  <h1>文章分类</h1> 
+	<ul id="categories">
+    <li class='category'><a href='/blog/categories/java/'>Java (10)</a></li>
+<li class='category'><a href='/blog/categories/others/'>Others (1)</a></li>
+
+	</ul>
+</section>
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Mz -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+  <script src="http://s17.cnzz.com/stat.php?id=5728155&web_id=5728155" language="JavaScript"></script>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'zhangmz';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://z420.github.io/blog/2013/11/16/duotaixing/';
+        var disqus_url = 'http://z420.github.io/blog/2013/11/16/duotaixing/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

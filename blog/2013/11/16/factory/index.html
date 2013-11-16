@@ -5,12 +5,42 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>this和super的区别 - Mz's Blog</title>
+  <title>设计模式-工厂设计 - Mz's Blog</title>
   <meta name="author" content="Mz">
 
   
-  <meta name="description" content="
-">
+  <meta name="description" content="工厂设计：程序在接口和子类之间加入了一个过渡端，通过此过渡端取得接口的实例化对象，一般都会称这个过渡端为工厂类。 1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +49,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://z420.github.io/blog/2013/11/14/this-super">
+  <link rel="canonical" href="http://z420.github.io/blog/2013/11/16/factory">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Mz's Blog" type="application/atom+xml">
@@ -68,7 +98,7 @@
   
   <header>
     
-      <h1 class="entry-title">This和super的区别</h1>
+      <h1 class="entry-title">设计模式-工厂设计</h1>
     
     
       <p class="meta">
@@ -84,7 +114,7 @@
   
 
 
-<time datetime="2013-11-14T21:27:00+08:00" pubdate data-updated="true">Nov 14<span>th</span>, 2013</time>
+<time datetime="2013-11-16T16:32:00+08:00" pubdate data-updated="true">Nov 16<span>th</span>, 2013</time>
         
            | <a href="#disqus_thread"
              data-disqus-identifier="http://z420.github.io">Comments</a>
@@ -94,7 +124,73 @@
   </header>
 
 
-<div class="entry-content"><p><img src="http://pic2.qnpic.com/doimg/z420/1c7fb5e7/"></p>
+<div class="entry-content"><p>工厂设计：程序在接口和子类之间加入了一个过渡端，通过此过渡端取得接口的实例化对象，一般都会称这个过渡端为工厂类。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>interface Fruit{
+</span><span class='line'>  public void eat();
+</span><span class='line'>}
+</span><span class='line'>class Apple implements Fruit{
+</span><span class='line'>  public void eat(){
+</span><span class='line'>      System.out.println("吃苹果");
+</span><span class='line'>  }
+</span><span class='line'>}
+</span><span class='line'>class Orange implements Fruit{
+</span><span class='line'>  public void eat(){
+</span><span class='line'>      System.out.println("吃橙子");
+</span><span class='line'>  }
+</span><span class='line'>}
+</span><span class='line'>class Factory{                                                     //定义工厂类
+</span><span class='line'>  public static Fruit getInstance(String className){
+</span><span class='line'>      Fruit f = null;                                    //定义接口对象
+</span><span class='line'>      if("apple".equals(className)){             //判断哪个子类的标记
+</span><span class='line'>          f = new Apple();               //通过apple类实例化接口
+</span><span class='line'>      }
+</span><span class='line'>      if("orange".equals(className)){
+</span><span class='line'>          f = new Orange();
+</span><span class='line'>      }
+</span><span class='line'>      return f;
+</span><span class='line'>  }
+</span><span class='line'>}
+</span><span class='line'>public class InterfaceDemo04 {
+</span><span class='line'>  public static void main(String[] args){
+</span><span class='line'>      Fruit f = null;                                    //定义接口对象
+</span><span class='line'>      f = Factory.getInstance("apple");                  //通过工厂取得实例
+</span><span class='line'>      f.eat();                       //调用方法
+</span><span class='line'>  }
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
 </div>
 
 
@@ -117,7 +213,7 @@
   
 
 
-<time datetime="2013-11-14T21:27:00+08:00" pubdate data-updated="true">Nov 14<span>th</span>, 2013</time>
+<time datetime="2013-11-16T16:32:00+08:00" pubdate data-updated="true">Nov 16<span>th</span>, 2013</time>
       
 
 <span class="categories">
@@ -138,10 +234,10 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2013/11/08/first/" title="Previous Post: 不要去打扰别人的幸福">&laquo; 不要去打扰别人的幸福</a>
+        <a class="basic-alignment left" href="/blog/2013/11/16/duotaixing/" title="Previous Post: 多态性">&laquo; 多态性</a>
       
       
-        <a class="basic-alignment right" href="/blog/2013/11/14/chongzaiyufuxie/" title="Next Post: 方法的重载与覆写的区别">方法的重载与覆写的区别 &raquo;</a>
+        <a class="basic-alignment right" href="/blog/2013/11/16/adapter/" title="Next Post: 设计模式-适配器设计">设计模式-适配器设计 &raquo;</a>
       
     </p>
   </footer>
@@ -215,8 +311,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://z420.github.io/blog/2013/11/14/this-super/';
-        var disqus_url = 'http://z420.github.io/blog/2013/11/14/this-super/';
+        var disqus_identifier = 'http://z420.github.io/blog/2013/11/16/factory/';
+        var disqus_url = 'http://z420.github.io/blog/2013/11/16/factory/';
         var disqus_script = 'embed.js';
       
     (function () {

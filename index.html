@@ -70,6 +70,511 @@
       
   <header>
     
+      <h1 class="entry-title"><a href="/blog/2013/11/16/proxy/">设计模式-代理设计</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-11-16T16:33:00+08:00" pubdate data-updated="true">Nov 16<span>th</span>, 2013</time>
+        
+           | <a href="/blog/2013/11/16/proxy/#disqus_thread"
+             data-disqus-identifier="http://z420.github.io/blog/2013/11/16/proxy/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>代理设计：所谓的代理设计就是指由一个代理主题来操作真实主题，真实主题执行具体的业务操作，而代理主题负责其他相关业务的处理。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>interface Network{
+</span><span class='line'>  public void browse();
+</span><span class='line'>}
+</span><span class='line'>class Real implements Network{
+</span><span class='line'>  public void browse(){
+</span><span class='line'>      System.out.println("上网");
+</span><span class='line'>  }
+</span><span class='line'>}
+</span><span class='line'>class Proxy implements Network{
+</span><span class='line'>  private Network network;
+</span><span class='line'>  public Proxy(Network network){
+</span><span class='line'>      this.network = network;
+</span><span class='line'>  }
+</span><span class='line'>  public void check(){
+</span><span class='line'>      System.out.println("检查用户是否合法");
+</span><span class='line'>  }
+</span><span class='line'>  public void browse(){
+</span><span class='line'>      this.check();
+</span><span class='line'>      this.network.browse();
+</span><span class='line'>  }
+</span><span class='line'>}
+</span><span class='line'>public class ProxyDemo {
+</span><span class='line'>  public static void main(String[] args){
+</span><span class='line'>      Network net = null;
+</span><span class='line'>      net = new Proxy(new Real());
+</span><span class='line'>      net.browse();
+</span><span class='line'>  }
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/11/16/adapter/">设计模式-适配器设计</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-11-16T16:33:00+08:00" pubdate data-updated="true">Nov 16<span>th</span>, 2013</time>
+        
+           | <a href="/blog/2013/11/16/adapter/#disqus_thread"
+             data-disqus-identifier="http://z420.github.io/blog/2013/11/16/adapter/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>适配器设计：对于Java程序来说，如果一个类要实现一个接口，则必须要覆写此接口中的全部抽象方法，
+那么如果此时一个接口中定义的抽象方法过多，但是在子类中又用不到那么多抽象方法，则肯定很麻烦。
+所以需要一个过渡类，这个过渡类被定义为抽象类，即一个接口首先被一个抽象类先实现（此抽象类通常称为
+适配器类），并在此抽象类中实现若干方法（方法体为空），则以后的子类直接继承此抽象类。就可以有选择
+的覆写所需要的方法。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>interface Window{
+</span><span class='line'>  public void open();
+</span><span class='line'>  public void close();
+</span><span class='line'>  public void activated();
+</span><span class='line'>  public void iconified();
+</span><span class='line'>  public void deiconified();
+</span><span class='line'>}
+</span><span class='line'>abstract class WindowAdapter implements Window{
+</span><span class='line'>  public void open(){};
+</span><span class='line'>  public void close(){};
+</span><span class='line'>  public void activated(){};
+</span><span class='line'>  public void iconified(){};
+</span><span class='line'>  public void deiconified(){};
+</span><span class='line'>}
+</span><span class='line'>class WindowImpl extends WindowAdapter{
+</span><span class='line'>  public void open(){
+</span><span class='line'>      System.out.println("窗口打开");
+</span><span class='line'>  }
+</span><span class='line'>  public void close(){
+</span><span class='line'>      System.out.println("窗口关闭");
+</span><span class='line'>  }
+</span><span class='line'>}
+</span><span class='line'>public class AdapterDemo {
+</span><span class='line'>  public static void main(String[] args){
+</span><span class='line'>      Window win = new WindowImpl();
+</span><span class='line'>      win.open();
+</span><span class='line'>      win.close();
+</span><span class='line'>  }
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/11/16/factory/">设计模式-工厂设计</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-11-16T16:32:00+08:00" pubdate data-updated="true">Nov 16<span>th</span>, 2013</time>
+        
+           | <a href="/blog/2013/11/16/factory/#disqus_thread"
+             data-disqus-identifier="http://z420.github.io/blog/2013/11/16/factory/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>工厂设计：程序在接口和子类之间加入了一个过渡端，通过此过渡端取得接口的实例化对象，一般都会称这个过渡端为工厂类。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>interface Fruit{
+</span><span class='line'>  public void eat();
+</span><span class='line'>}
+</span><span class='line'>class Apple implements Fruit{
+</span><span class='line'>  public void eat(){
+</span><span class='line'>      System.out.println("吃苹果");
+</span><span class='line'>  }
+</span><span class='line'>}
+</span><span class='line'>class Orange implements Fruit{
+</span><span class='line'>  public void eat(){
+</span><span class='line'>      System.out.println("吃橙子");
+</span><span class='line'>  }
+</span><span class='line'>}
+</span><span class='line'>class Factory{                                                     //定义工厂类
+</span><span class='line'>  public static Fruit getInstance(String className){
+</span><span class='line'>      Fruit f = null;                                    //定义接口对象
+</span><span class='line'>      if("apple".equals(className)){             //判断哪个子类的标记
+</span><span class='line'>          f = new Apple();               //通过apple类实例化接口
+</span><span class='line'>      }
+</span><span class='line'>      if("orange".equals(className)){
+</span><span class='line'>          f = new Orange();
+</span><span class='line'>      }
+</span><span class='line'>      return f;
+</span><span class='line'>  }
+</span><span class='line'>}
+</span><span class='line'>public class InterfaceDemo04 {
+</span><span class='line'>  public static void main(String[] args){
+</span><span class='line'>      Fruit f = null;                                    //定义接口对象
+</span><span class='line'>      f = Factory.getInstance("apple");                  //通过工厂取得实例
+</span><span class='line'>      f.eat();                       //调用方法
+</span><span class='line'>  }
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/11/16/duotaixing/">多态性</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-11-16T16:24:00+08:00" pubdate data-updated="true">Nov 16<span>th</span>, 2013</time>
+        
+           | <a href="/blog/2013/11/16/duotaixing/#disqus_thread"
+             data-disqus-identifier="http://z420.github.io/blog/2013/11/16/duotaixing/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>对象向上转型：父类 父类对象 = 子类实例;<br/>
+对象发生了向上转型关系后，所调用的方法一定是被子类覆写过的方法。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>//向上转型
+</span><span class='line'>class A{
+</span><span class='line'>  public void fun1(){
+</span><span class='line'>      System.out.println("A --> public void fun1(){}");
+</span><span class='line'>  }
+</span><span class='line'>  public void fun2(){
+</span><span class='line'>      this.fun1();
+</span><span class='line'>  }
+</span><span class='line'>}
+</span><span class='line'>class B extends A{
+</span><span class='line'>  public void fun1(){
+</span><span class='line'>      System.out.println("B --> public void fun1(){}");
+</span><span class='line'>  }
+</span><span class='line'>  public void fun3(){
+</span><span class='line'>      System.out.println("B --> public void fun3(){}");
+</span><span class='line'>  }
+</span><span class='line'>}
+</span><span class='line'>public class PolDemo01 {
+</span><span class='line'>  public static void main(String[] args){
+</span><span class='line'>      B b = new B();
+</span><span class='line'>      A a = b;
+</span><span class='line'>      a.fun1();
+</span><span class='line'>  }
+</span><span class='line'>}
+</span><span class='line'>//运行结果
+</span><span class='line'>B --> public void fun1(){}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>对象向下转型：子类 子类对象 = （子类）父类实例;<br/>
+在进行对象的向下转型前，必须首先发生对象向上转型，否者将出现对象转换异常。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>//向下转型
+</span><span class='line'>class A{
+</span><span class='line'>  public void fun1(){
+</span><span class='line'>      System.out.println("A --> public void fun1(){}");
+</span><span class='line'>  }
+</span><span class='line'>  public void fun2(){
+</span><span class='line'>      this.fun1();
+</span><span class='line'>  }
+</span><span class='line'>}
+</span><span class='line'>class B extends A{
+</span><span class='line'>  public void fun1(){
+</span><span class='line'>      System.out.println("B --> public void fun1(){}");
+</span><span class='line'>  }
+</span><span class='line'>  public void fun3(){
+</span><span class='line'>      System.out.println("B --> public void fun3(){}");
+</span><span class='line'>  }
+</span><span class='line'>}
+</span><span class='line'>public class PolDemo02 {
+</span><span class='line'>  public static void main(String[] args){
+</span><span class='line'>      A a = new B();               //向上转型，子类-->父类。
+</span><span class='line'>      B b = (B)a;                  //向下转型。
+</span><span class='line'>      b.fun1();
+</span><span class='line'>      b.fun2();
+</span><span class='line'>      b.fun3();
+</span><span class='line'>  }
+</span><span class='line'>}
+</span><span class='line'>//运行结果
+</span><span class='line'>B --> public void fun1(){}
+</span><span class='line'>B --> public void fun1(){}
+</span><span class='line'>B --> public void fun3(){}</span></code></pre></td></tr></table></div></figure>
+
+
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/11/16/funinclassobject/">Object类中的主要方法</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-11-16T15:07:00+08:00" pubdate data-updated="true">Nov 16<span>th</span>, 2013</time>
+        
+           | <a href="/blog/2013/11/16/funinclassobject/#disqus_thread"
+             data-disqus-identifier="http://z420.github.io/blog/2013/11/16/funinclassobject/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><img src="/images/2013/11/FunInClassObject.jpg" alt="" /></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2013/11/15/abstract-interface-relationship/">抽象类和接口的关系</a></h1>
     
     
@@ -306,91 +811,9 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/11/14/this-super/">This和super的区别</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-11-14T21:27:00+08:00" pubdate data-updated="true">Nov 14<span>th</span>, 2013</time>
-        
-           | <a href="/blog/2013/11/14/this-super/#disqus_thread"
-             data-disqus-identifier="http://z420.github.io/blog/2013/11/14/this-super/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><img src="http://pic2.qnpic.com/doimg/z420/1c7fb5e7/"></p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/11/08/first/">不要去打扰别人的幸福</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-11-08T16:04:00+08:00" pubdate data-updated="true">Nov 8<span>th</span>, 2013</time>
-        
-           | <a href="/blog/2013/11/08/first/#disqus_thread"
-             data-disqus-identifier="http://z420.github.io/blog/2013/11/08/first/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>上学时，一个女同学趁小长假到外地与男朋友小聚。听说她是坐了二十几个小时的硬座去的，同学忍不住说了句：我要是她男朋友一定给她买卧铺！
-没想到此话传到该同学耳朵里，让她很难受。虽然幸福要靠每个人自己心理调节，但是自己也要学会不去惊扰别人的幸福。</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2013/11/08/first/">阅读全文 &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
+    
+      <a class="prev" href="/blog/page/2/">&larr; Older</a>
     
     <a href="/blog/archives">Blog Archives</a>
     
@@ -403,23 +826,23 @@
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/blog/2013/11/15/abstract-interface-relationship/">抽象类和接口的关系</a>
+        <a href="/blog/2013/11/16/proxy/">设计模式-代理设计</a>
       </li>
     
       <li class="post">
-        <a href="/blog/2013/11/15/interface/">Interface</a>
+        <a href="/blog/2013/11/16/adapter/">设计模式-适配器设计</a>
       </li>
     
       <li class="post">
-        <a href="/blog/2013/11/14/abstract-class/">抽象类</a>
+        <a href="/blog/2013/11/16/factory/">设计模式-工厂设计</a>
       </li>
     
       <li class="post">
-        <a href="/blog/2013/11/14/final-tips/">使用final关键字的注意事项</a>
+        <a href="/blog/2013/11/16/duotaixing/">多态性</a>
       </li>
     
       <li class="post">
-        <a href="/blog/2013/11/14/chongzaiyufuxie/">方法的重载与覆写的区别</a>
+        <a href="/blog/2013/11/16/funinclassobject/">Object类中的主要方法</a>
       </li>
     
   </ul>
@@ -431,7 +854,7 @@
 <section> 
   <h1>文章分类</h1> 
 	<ul id="categories">
-    <li class='category'><a href='/blog/categories/java/'>Java (5)</a></li>
+    <li class='category'><a href='/blog/categories/java/'>Java (10)</a></li>
 <li class='category'><a href='/blog/categories/others/'>Others (1)</a></li>
 
 	</ul>
