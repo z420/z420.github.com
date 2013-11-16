@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Java | Mz's Blog]]></title>
   <link href="http://z420.github.io/blog/categories/java/atom.xml" rel="self"/>
   <link href="http://z420.github.io/"/>
-  <updated>2013-11-15T14:25:39+08:00</updated>
+  <updated>2013-11-16T15:02:45+08:00</updated>
   <id>http://z420.github.io/</id>
   <author>
     <name><![CDATA[Mz]]></name>
@@ -18,9 +18,8 @@
     <link href="http://z420.github.io/blog/2013/11/15/interface/"/>
     <updated>2013-11-15T10:56:00+08:00</updated>
     <id>http://z420.github.io/blog/2013/11/15/interface</id>
-    <content type="html"><![CDATA[<p>接口中的抽象方法必须定义为public访问权限，如果省略public默认也为public不是default。</p>
-
-<p>一个子类可以同时实现多个接口，摆脱了Java的单继承局限。
+    <content type="html"><![CDATA[<p>接口中的抽象方法必须定义为public访问权限，如果省略public默认也为public不是default。  <br/>
+一个子类可以同时实现多个接口，摆脱了Java的单继承局限。
 <div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -51,17 +50,12 @@
     <link href="http://z420.github.io/blog/2013/11/14/abstract-class/"/>
     <updated>2013-11-14T22:21:00+08:00</updated>
     <id>http://z420.github.io/blog/2013/11/14/abstract-class</id>
-    <content type="html"><![CDATA[<p>包含一个抽象方法的类必须是抽象类。</p>
-
-<p>抽象类和抽象方法都要使用abstract关键字声明。</p>
-
-<p>抽象方法只需声明而不需要实现。</p>
-
-<p>抽象类必须被子继承，子类（如果不是抽象类）必须覆写抽象类中的全部抽象方法。</p>
-
-<p>一个子类只能继承一个抽象类（单继承）。</p>
-
-<p>抽象方法不要使用private声明。否者子类无法覆写。
+    <content type="html"><![CDATA[<p>包含一个抽象方法的类必须是抽象类。<br/>
+抽象类和抽象方法都要使用abstract关键字声明。<br/>
+抽象方法只需声明而不需要实现。<br/>
+抽象类必须被子继承，子类（如果不是抽象类）必须覆写抽象类中的全部抽象方法。<br/>
+一个子类只能继承一个抽象类（单继承）。<br/>
+抽象方法不要使用private声明。否者子类无法覆写。
 <div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -94,14 +88,9 @@
     <link href="http://z420.github.io/blog/2013/11/14/final-tips/"/>
     <updated>2013-11-14T22:16:00+08:00</updated>
     <id>http://z420.github.io/blog/2013/11/14/final-tips</id>
-    <content type="html"><![CDATA[<p>使用final声明的类不能有子类。</p>
-
-
-<p>使用final声明的方法不能被子类所覆写。</p>
-
-
-<p>使用final声明的变量即成为常量，常量不可以修改。</p>
-
+    <content type="html"><![CDATA[<p>使用final声明的类不能有子类。 <br/>
+使用final声明的方法不能被子类所覆写。<br/>
+使用final声明的变量即成为常量，常量不可以修改。</p>
 ]]></content>
   </entry>
   
