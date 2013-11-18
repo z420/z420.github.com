@@ -9,7 +9,22 @@
   <meta name="author" content="Mz">
 
   
-  <meta name="description" content="中国人口政策及数量变迁 中国人口政策及数量变迁（1949-2010） 关键词 时间轴 相关历史事件 人口4亿余人 1949 1949年9月21日，毛泽东在中国人民政治协商会议第一届全体会议上说：“我们的极好条件是有四万万七千五百万的人口和九百五十九万七千平方公里的国土。” 禁止打胎 1950 &hellip;">
+  <meta name="description" content="异常处理格式 1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+try{ //有可能出现异常的语句
+}catch(异常类 异常对象){ //编写异常的处理语句
+}[catch(异常类 异常对象){ //编写异常的处理语句
+} ... ]
+[finally{ 一定会运行到的程序代码;
+}] ">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -63,6 +78,65 @@
   <div id="main">
     <div id="content">
       
+
+
+    <article class="post">
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/11/18/exception/">异常处理</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-11-18T14:44:00+08:00" pubdate data-updated="true">Nov 18<span>th</span>, 2013</time>
+        
+           | <a href="/blog/2013/11/18/exception/#disqus_thread"
+             data-disqus-identifier="http://z420.github.io/blog/2013/11/18/exception/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>异常处理格式</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>try{
+</span><span class='line'>  //有可能出现异常的语句
+</span><span class='line'>}catch(异常类 异常对象){
+</span><span class='line'>  //编写异常的处理语句
+</span><span class='line'>}[catch(异常类 异常对象){
+</span><span class='line'>  //编写异常的处理语句
+</span><span class='line'>} ... ]
+</span><span class='line'>[finally{
+</span><span class='line'>  一定会运行到的程序代码;
+</span><span class='line'>}]</span></code></pre></td></tr></table></div></figure>
+
+</div>
+  
+  
+
+</article>
 
 
     <article class="post">
@@ -1208,45 +1282,6 @@
 </span><span class='line'>  }
 </span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
 
-</div>
-  
-  
-
-</article>
-
-
-    <article class="post">
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/11/14/final-tips/">使用final关键字的注意事项</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-11-14T22:16:00+08:00" pubdate data-updated="true">Nov 14<span>th</span>, 2013</time>
-        
-           | <a href="/blog/2013/11/14/final-tips/#disqus_thread"
-             data-disqus-identifier="http://z420.github.io/blog/2013/11/14/final-tips/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>使用final声明的类不能有子类。 <br/>
-使用final声明的方法不能被子类所覆写。<br/>
-使用final声明的变量即成为常量，常量不可以修改。</p>
 </div>
   
   
