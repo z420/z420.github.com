@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Java | Mz's Blog]]></title>
   <link href="http://z420.github.io/blog/categories/java/atom.xml" rel="self"/>
   <link href="http://z420.github.io/"/>
-  <updated>2013-11-18T16:59:10+08:00</updated>
+  <updated>2013-11-21T14:50:13+08:00</updated>
   <id>http://z420.github.io/</id>
   <author>
     <name><![CDATA[Mz]]></name>
@@ -12,6 +12,60 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Java多线程]]></title>
+    <link href="http://z420.github.io/blog/2013/11/20/run-thread/"/>
+    <updated>2013-11-20T14:39:00+08:00</updated>
+    <id>http://z420.github.io/blog/2013/11/20/run-thread</id>
+    <content type="html"><![CDATA[<p>在Java中要想实现多线程代码有两种手段，一种是继承Thread类，另一种就是实现Runnable接口。
+Thread类是在java.lang包中定义的，一个类只要继承了Thread类，此类就称为多线程操作类。在Thread子类中，必须明确的覆写Thread类中的run()方法，此方法为线程的主体。线程类的定义如下。
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>class 类名称 extends Thread{&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;pre>&lt;code>属性...;
+</span><span class='line'>方法...;
+</span><span class='line'>public void run(){
+</span><span class='line'>    线程主体;
+</span><span class='line'>}
+</span><span class='line'>&lt;/code>&lt;/pre>
+</span><span class='line'>
+</span><span class='line'>&lt;p>}</span></code></pre></td></tr></table></div></figure></notextile></div>
+在java中也可以通过实现Runnable接口的方式实现多线程，Runnable接口中只定义了一个抽象方法
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>public void run();</span></code></pre></td></tr></table></div></figure></notextile></div>
+通过Runnable接口实现多线程：
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>class 类名称 implements Runnable{&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;pre>&lt;code>属性...;
+</span><span class='line'>方法...;
+</span><span class='line'>public void run(){
+</span><span class='line'>    线程主体;
+</span><span class='line'>}
+</span><span class='line'>&lt;/code>&lt;/pre>
+</span><span class='line'>
+</span><span class='line'>&lt;p>}</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[异常处理]]></title>
@@ -422,166 +476,6 @@
 </span><span class='line'>&lt;/code>&lt;/pre>
 </span><span class='line'>
 </span><span class='line'>&lt;p>}</span></code></pre></td></tr></table></div></figure></notextile></div></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[多态性]]></title>
-    <link href="http://z420.github.io/blog/2013/11/16/duotaixing/"/>
-    <updated>2013-11-16T16:24:00+08:00</updated>
-    <id>http://z420.github.io/blog/2013/11/16/duotaixing</id>
-    <content type="html"><![CDATA[<p>对象向上转型：父类 父类对象 = 子类实例;<br/>
-对象发生了向上转型关系后，所调用的方法一定是被子类覆写过的方法。
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>//向上转型
-</span><span class='line'>class A{&lt;/p>
-</span><span class='line'>
-</span><span class='line'>&lt;pre>&lt;code>public void fun1(){
-</span><span class='line'>    System.out.println("A --&gt; public void fun1(){}");
-</span><span class='line'>}
-</span><span class='line'>public void fun2(){
-</span><span class='line'>    this.fun1();
-</span><span class='line'>}
-</span><span class='line'>&lt;/code>&lt;/pre>
-</span><span class='line'>
-</span><span class='line'>&lt;p>}
-</span><span class='line'>class B extends A{&lt;/p>
-</span><span class='line'>
-</span><span class='line'>&lt;pre>&lt;code>public void fun1(){
-</span><span class='line'>    System.out.println("B --&gt; public void fun1(){}");
-</span><span class='line'>}
-</span><span class='line'>public void fun3(){
-</span><span class='line'>    System.out.println("B --&gt; public void fun3(){}");
-</span><span class='line'>}
-</span><span class='line'>&lt;/code>&lt;/pre>
-</span><span class='line'>
-</span><span class='line'>&lt;p>}
-</span><span class='line'>public class PolDemo01 {&lt;/p>
-</span><span class='line'>
-</span><span class='line'>&lt;pre>&lt;code>public static void main(String[] args){
-</span><span class='line'>    B b = new B();
-</span><span class='line'>    A a = b;
-</span><span class='line'>    a.fun1();
-</span><span class='line'>}
-</span><span class='line'>&lt;/code>&lt;/pre>
-</span><span class='line'>
-</span><span class='line'>&lt;p>}
-</span><span class='line'>//运行结果
-</span><span class='line'>B &mdash;> public void fun1(){}</span></code></pre></td></tr></table></div></figure></notextile></div>
-对象向下转型：子类 子类对象 = （子类）父类实例;<br/>
-在进行对象的向下转型前，必须首先发生对象向上转型，否者将出现对象转换异常。
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>//向下转型
-</span><span class='line'>class A{&lt;/p>
-</span><span class='line'>
-</span><span class='line'>&lt;pre>&lt;code>public void fun1(){
-</span><span class='line'>    System.out.println("A --&gt; public void fun1(){}");
-</span><span class='line'>}
-</span><span class='line'>public void fun2(){
-</span><span class='line'>    this.fun1();
-</span><span class='line'>}
-</span><span class='line'>&lt;/code>&lt;/pre>
-</span><span class='line'>
-</span><span class='line'>&lt;p>}
-</span><span class='line'>class B extends A{&lt;/p>
-</span><span class='line'>
-</span><span class='line'>&lt;pre>&lt;code>public void fun1(){
-</span><span class='line'>    System.out.println("B --&gt; public void fun1(){}");
-</span><span class='line'>}
-</span><span class='line'>public void fun3(){
-</span><span class='line'>    System.out.println("B --&gt; public void fun3(){}");
-</span><span class='line'>}
-</span><span class='line'>&lt;/code>&lt;/pre>
-</span><span class='line'>
-</span><span class='line'>&lt;p>}
-</span><span class='line'>public class PolDemo02 {&lt;/p>
-</span><span class='line'>
-</span><span class='line'>&lt;pre>&lt;code>public static void main(String[] args){
-</span><span class='line'>    A a = new B();               //向上转型，子类--&gt;父类。
-</span><span class='line'>    B b = (B)a;                  //向下转型。
-</span><span class='line'>    b.fun1();
-</span><span class='line'>    b.fun2();
-</span><span class='line'>    b.fun3();
-</span><span class='line'>}
-</span><span class='line'>&lt;/code>&lt;/pre>
-</span><span class='line'>
-</span><span class='line'>&lt;p>}
-</span><span class='line'>//运行结果
-</span><span class='line'>B &mdash;> public void fun1(){}
-</span><span class='line'>B &mdash;> public void fun1(){}
-</span><span class='line'>B &mdash;> public void fun3(){}</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 ]]></content>
   </entry>
   

@@ -4,7 +4,7 @@
   <title><![CDATA[Mz's Blog]]></title>
   <link href="http://z420.github.io/atom.xml" rel="self"/>
   <link href="http://z420.github.io/"/>
-  <updated>2013-11-18T16:59:10+08:00</updated>
+  <updated>2013-11-21T14:50:13+08:00</updated>
   <id>http://z420.github.io/</id>
   <author>
     <name><![CDATA[Mz]]></name>
@@ -12,6 +12,56 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Java多线程]]></title>
+    <link href="http://z420.github.io/blog/2013/11/20/run-thread/"/>
+    <updated>2013-11-20T14:39:00+08:00</updated>
+    <id>http://z420.github.io/blog/2013/11/20/run-thread</id>
+    <content type="html"><![CDATA[<p>在Java中要想实现多线程代码有两种手段，一种是继承Thread类，另一种就是实现Runnable接口。
+Thread类是在java.lang包中定义的，一个类只要继承了Thread类，此类就称为多线程操作类。在Thread子类中，必须明确的覆写Thread类中的run()方法，此方法为线程的主体。线程类的定义如下。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>class 类名称 extends Thread{
+</span><span class='line'>  属性...;
+</span><span class='line'>  方法...;
+</span><span class='line'>  public void run(){
+</span><span class='line'>      线程主体;
+</span><span class='line'>  }
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>在java中也可以通过实现Runnable接口的方式实现多线程，Runnable接口中只定义了一个抽象方法</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>public void run();</span></code></pre></td></tr></table></div></figure>
+
+
+<p>通过Runnable接口实现多线程：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>class 类名称 implements Runnable{
+</span><span class='line'>  属性...;
+</span><span class='line'>  方法...;
+</span><span class='line'>  public void run(){
+</span><span class='line'>      线程主体;
+</span><span class='line'>  }
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[异常处理]]></title>

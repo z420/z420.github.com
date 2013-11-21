@@ -70,6 +70,86 @@
       
   <header>
     
+      <h1 class="entry-title"><a href="/blog/2013/11/20/run-thread/">Java多线程</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-11-20T14:39:00+08:00" pubdate data-updated="true">Nov 20<span>th</span>, 2013</time>
+        
+           | <a href="/blog/2013/11/20/run-thread/#disqus_thread"
+             data-disqus-identifier="http://z420.github.io/blog/2013/11/20/run-thread/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>在Java中要想实现多线程代码有两种手段，一种是继承Thread类，另一种就是实现Runnable接口。
+Thread类是在java.lang包中定义的，一个类只要继承了Thread类，此类就称为多线程操作类。在Thread子类中，必须明确的覆写Thread类中的run()方法，此方法为线程的主体。线程类的定义如下。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>class 类名称 extends Thread{
+</span><span class='line'>  属性...;
+</span><span class='line'>  方法...;
+</span><span class='line'>  public void run(){
+</span><span class='line'>      线程主体;
+</span><span class='line'>  }
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>在java中也可以通过实现Runnable接口的方式实现多线程，Runnable接口中只定义了一个抽象方法</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>public void run();</span></code></pre></td></tr></table></div></figure>
+
+
+<p>通过Runnable接口实现多线程：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>class 类名称 implements Runnable{
+</span><span class='line'>  属性...;
+</span><span class='line'>  方法...;
+</span><span class='line'>  public void run(){
+</span><span class='line'>      线程主体;
+</span><span class='line'>  }
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2013/11/18/exception/">异常处理</a></h1>
     
     
@@ -1282,70 +1362,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/11/14/abstract-class/">抽象类</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-11-14T22:21:00+08:00" pubdate data-updated="true">Nov 14<span>th</span>, 2013</time>
-        
-           | <a href="/blog/2013/11/14/abstract-class/#disqus_thread"
-             data-disqus-identifier="http://z420.github.io/blog/2013/11/14/abstract-class/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>包含一个抽象方法的类必须是抽象类。<br/>
-抽象类和抽象方法都要使用abstract关键字声明。<br/>
-抽象方法只需声明而不需要实现。<br/>
-抽象类必须被子继承，子类（如果不是抽象类）必须覆写抽象类中的全部抽象方法。<br/>
-一个子类只能继承一个抽象类（单继承）。<br/>
-抽象方法不要使用private声明。否者子类无法覆写。</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>abstract class 抽象类名称{
-</span><span class='line'>  属性;
-</span><span class='line'>  访问权限 返回值类型 方法名称(参数){                  //普通方法
-</span><span class='line'>      [return 返回值];
-</span><span class='line'>  }
-</span><span class='line'>  访问权限 abstract 返回值类型 方法名称(参数){        //抽象方法
-</span><span class='line'>  //在抽象方法中没有方法体
-</span><span class='line'>  }
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -1359,6 +1375,10 @@
     <section>
   <h1>最近发表</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/11/20/run-thread/">Java多线程</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2013/11/18/exception/">异常处理</a>
@@ -1376,10 +1396,6 @@
         <a href="/blog/2013/11/16/adapter/">设计模式-适配器设计</a>
       </li>
     
-      <li class="post">
-        <a href="/blog/2013/11/16/factory/">设计模式-工厂设计</a>
-      </li>
-    
   </ul>
 </section>
 
@@ -1389,7 +1405,7 @@
 <section> 
   <h1>文章分类</h1> 
 	<ul id="categories">
-    <li class='category'><a href='/blog/categories/java/'>Java (11)</a></li>
+    <li class='category'><a href='/blog/categories/java/'>Java (12)</a></li>
 <li class='category'><a href='/blog/categories/others/'>Others (2)</a></li>
 
 	</ul>
