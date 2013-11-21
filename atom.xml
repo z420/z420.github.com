@@ -4,7 +4,7 @@
   <title><![CDATA[Mz's Blog]]></title>
   <link href="http://z420.github.io/atom.xml" rel="self"/>
   <link href="http://z420.github.io/"/>
-  <updated>2013-11-21T14:50:13+08:00</updated>
+  <updated>2013-11-21T15:09:48+08:00</updated>
   <id>http://z420.github.io/</id>
   <author>
     <name><![CDATA[Mz]]></name>
@@ -60,6 +60,11 @@ Thread类是在java.lang包中定义的，一个类只要继承了Thread类，�
 </span><span class='line'>  }
 </span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
 
+
+<blockquote><p>实现Runnable接口相对于继承Thread类来说，有如下显著优势：<br/>
+1.适合多个相同程序代码的线程去处理同一资源的情况。<br/>
+2.可以避免由于java的单继承特性带来的局限。<br/>
+3.增强了程序的健壮性，代码能够被多个线程共享，代码与数据是独立的。</p></blockquote>
 ]]></content>
   </entry>
   
