@@ -9,13 +9,26 @@
   <meta name="author" content="Mz">
 
   
-  <meta name="description" content="所谓的泛型就是指在对象建立时不指定类中属性的具体类型，而由外部在声明及实例化对象时指定类型。
-泛型类定义 1
+  <meta name="description" content="在泛型应用中最好在声明类对象时指定好其内部的数据类型，如info，如果不指定类型，这样用户在使用这样的类时，就会出现不安全的警告信息。 不指定泛型类型，出现警告信息 1
 2
 3
 4
 5
-[访问权限] class 类名称&lt;泛型类型标识1,泛型类型标识2,...,泛型类型标识3>{ [访问权限] 泛型类型标识 变量名称; [访问权限] 泛型类型标识 &hellip;">
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+class Info&lt;T>{ &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -69,6 +82,103 @@
   <div id="main">
     <div id="content">
       
+
+
+    <article class="post">
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/11/26/generics-warnning/">泛型的安全警告</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-11-26T11:07:00+08:00" pubdate data-updated="true">Nov 26<span>th</span>, 2013</time>
+        
+           | <a href="/blog/2013/11/26/generics-warnning/#disqus_thread"
+             data-disqus-identifier="http://z420.github.io/blog/2013/11/26/generics-warnning/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>在泛型应用中最好在声明类对象时指定好其内部的数据类型，如info<String>，如果不指定类型，这样用户在使用这样的类时，就会出现不安全的警告信息。</p>
+
+<p><strong>不指定泛型类型，出现警告信息</strong></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>class Info&lt;T>{
+</span><span class='line'>  private T var;
+</span><span class='line'>  public T getVar(){
+</span><span class='line'>      return var;
+</span><span class='line'>  }
+</span><span class='line'>  public void setVar(T var){
+</span><span class='line'>      this.var = var;
+</span><span class='line'>  }
+</span><span class='line'>  public String toString(){
+</span><span class='line'>      return this.var.toString();
+</span><span class='line'>  }
+</span><span class='line'>}
+</span><span class='line'>public class GenericsDemo10 {
+</span><span class='line'>  public static void main(String[] args){
+</span><span class='line'>      Info i = new Info();       //警告，没有指定泛型类型。
+</span><span class='line'>      i.setVar("王");
+</span><span class='line'>      System.out.println("姓名：" + i.getVar());
+</span><span class='line'>  }
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>以上程序虽然在编译时出现了警告，但是并不影响程序的运行，这是因为在泛型的操作中为了方便用户的使用，就算没有指定泛型程序也可以正常使用，而所有的类型统一使用Object进行接收，所以以上程序的var属性实际上是Object类型的，也就是在定义时将泛型擦除了，以上程序类似以下的定义。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>public class GenericsDemo10 {
+</span><span class='line'>  public static void main(String[] args){
+</span><span class='line'>      Info&lt;Object> i = new Info&lt;Object>();  //指定Object为泛型类型。
+</span><span class='line'>      i.setVar("王");
+</span><span class='line'>      System.out.println("姓名：" + i.getVar());
+</span><span class='line'>  }
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+</div>
+  
+  
+
+</article>
 
 
     <article class="post">
@@ -1435,43 +1545,6 @@ Thread类是在java.lang包中定义的，一个类只要继承了Thread类，�
 
 
   <div class="entry-content"><p><img src="/images/2013/11/FunInClassObject.jpg" alt="" /></p>
-</div>
-  
-  
-
-</article>
-
-
-    <article class="post">
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/11/15/abstract-interface-relationship/">抽象类和接口的关系</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-11-15T16:29:00+08:00" pubdate data-updated="true">Nov 15<span>th</span>, 2013</time>
-        
-           | <a href="/blog/2013/11/15/abstract-interface-relationship/#disqus_thread"
-             data-disqus-identifier="http://z420.github.io/blog/2013/11/15/abstract-interface-relationship/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><img src="/images/2013/11/AbstractInterface.jpg" alt="" /></p>
 </div>
   
   

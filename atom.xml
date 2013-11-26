@@ -4,7 +4,7 @@
   <title><![CDATA[Mz's Blog]]></title>
   <link href="http://z420.github.io/atom.xml" rel="self"/>
   <link href="http://z420.github.io/"/>
-  <updated>2013-11-26T11:05:36+08:00</updated>
+  <updated>2013-11-26T19:14:59+08:00</updated>
   <id>http://z420.github.io/</id>
   <author>
     <name><![CDATA[Mz]]></name>
@@ -12,6 +12,75 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[泛型的安全警告]]></title>
+    <link href="http://z420.github.io/blog/2013/11/26/generics-warnning/"/>
+    <updated>2013-11-26T11:07:00+08:00</updated>
+    <id>http://z420.github.io/blog/2013/11/26/generics-warnning</id>
+    <content type="html"><![CDATA[<p>在泛型应用中最好在声明类对象时指定好其内部的数据类型，如info<String>，如果不指定类型，这样用户在使用这样的类时，就会出现不安全的警告信息。</p>
+
+<p><strong>不指定泛型类型，出现警告信息</strong></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>class Info&lt;T>{
+</span><span class='line'>  private T var;
+</span><span class='line'>  public T getVar(){
+</span><span class='line'>      return var;
+</span><span class='line'>  }
+</span><span class='line'>  public void setVar(T var){
+</span><span class='line'>      this.var = var;
+</span><span class='line'>  }
+</span><span class='line'>  public String toString(){
+</span><span class='line'>      return this.var.toString();
+</span><span class='line'>  }
+</span><span class='line'>}
+</span><span class='line'>public class GenericsDemo10 {
+</span><span class='line'>  public static void main(String[] args){
+</span><span class='line'>      Info i = new Info();       //警告，没有指定泛型类型。
+</span><span class='line'>      i.setVar("王");
+</span><span class='line'>      System.out.println("姓名：" + i.getVar());
+</span><span class='line'>  }
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>以上程序虽然在编译时出现了警告，但是并不影响程序的运行，这是因为在泛型的操作中为了方便用户的使用，就算没有指定泛型程序也可以正常使用，而所有的类型统一使用Object进行接收，所以以上程序的var属性实际上是Object类型的，也就是在定义时将泛型擦除了，以上程序类似以下的定义。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>public class GenericsDemo10 {
+</span><span class='line'>  public static void main(String[] args){
+</span><span class='line'>      Info&lt;Object> i = new Info&lt;Object>();  //指定Object为泛型类型。
+</span><span class='line'>      i.setVar("王");
+</span><span class='line'>      System.out.println("姓名：" + i.getVar());
+</span><span class='line'>  }
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[泛型]]></title>

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Java | Mz's Blog]]></title>
   <link href="http://z420.github.io/blog/categories/java/atom.xml" rel="self"/>
   <link href="http://z420.github.io/"/>
-  <updated>2013-11-26T11:05:36+08:00</updated>
+  <updated>2013-11-26T19:14:59+08:00</updated>
   <id>http://z420.github.io/</id>
   <author>
     <name><![CDATA[Mz]]></name>
@@ -12,6 +12,88 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[泛型的安全警告]]></title>
+    <link href="http://z420.github.io/blog/2013/11/26/generics-warnning/"/>
+    <updated>2013-11-26T11:07:00+08:00</updated>
+    <id>http://z420.github.io/blog/2013/11/26/generics-warnning</id>
+    <content type="html"><![CDATA[<p>在泛型应用中最好在声明类对象时指定好其内部的数据类型，如info<String>，如果不指定类型，这样用户在使用这样的类时，就会出现不安全的警告信息。</p>
+
+<p><strong>不指定泛型类型，出现警告信息</strong><br/>
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>class Info&lt;T>{&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;pre>&lt;code>private T var;
+</span><span class='line'>public T getVar(){
+</span><span class='line'>    return var;
+</span><span class='line'>}
+</span><span class='line'>public void setVar(T var){
+</span><span class='line'>    this.var = var;
+</span><span class='line'>}
+</span><span class='line'>public String toString(){
+</span><span class='line'>    return this.var.toString();
+</span><span class='line'>}
+</span><span class='line'>&lt;/code>&lt;/pre>
+</span><span class='line'>
+</span><span class='line'>&lt;p>}
+</span><span class='line'>public class GenericsDemo10 {&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;pre>&lt;code>public static void main(String[] args){
+</span><span class='line'>    Info i = new Info();       //警告，没有指定泛型类型。
+</span><span class='line'>    i.setVar("王");
+</span><span class='line'>    System.out.println("姓名：" + i.getVar());
+</span><span class='line'>}
+</span><span class='line'>&lt;/code>&lt;/pre>
+</span><span class='line'>
+</span><span class='line'>&lt;p>}</span></code></pre></td></tr></table></div></figure></notextile></div>
+以上程序虽然在编译时出现了警告，但是并不影响程序的运行，这是因为在泛型的操作中为了方便用户的使用，就算没有指定泛型程序也可以正常使用，而所有的类型统一使用Object进行接收，所以以上程序的var属性实际上是Object类型的，也就是在定义时将泛型擦除了，以上程序类似以下的定义。
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>public class GenericsDemo10 {&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;pre>&lt;code>public static void main(String[] args){
+</span><span class='line'>    Info&lt;Object&gt; i = new Info&lt;Object&gt;();  //指定Object为泛型类型。
+</span><span class='line'>    i.setVar("王");
+</span><span class='line'>    System.out.println("姓名：" + i.getVar());
+</span><span class='line'>}
+</span><span class='line'>&lt;/code>&lt;/pre>
+</span><span class='line'>
+</span><span class='line'>&lt;p>}</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[泛型]]></title>
@@ -461,101 +543,6 @@ Thread类是在java.lang包中定义的，一个类只要继承了Thread类，�
 </span><span class='line'>    Network net = null;
 </span><span class='line'>    net = new Proxy(new Real());
 </span><span class='line'>    net.browse();
-</span><span class='line'>}
-</span><span class='line'>&lt;/code>&lt;/pre>
-</span><span class='line'>
-</span><span class='line'>&lt;p>}</span></code></pre></td></tr></table></div></figure></notextile></div></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[设计模式-适配器设计]]></title>
-    <link href="http://z420.github.io/blog/2013/11/16/adapter/"/>
-    <updated>2013-11-16T16:33:00+08:00</updated>
-    <id>http://z420.github.io/blog/2013/11/16/adapter</id>
-    <content type="html"><![CDATA[<p>适配器设计：对于Java程序来说，如果一个类要实现一个接口，则必须要覆写此接口中的全部抽象方法，
-那么如果此时一个接口中定义的抽象方法过多，但是在子类中又用不到那么多抽象方法，则肯定很麻烦。
-所以需要一个过渡类，这个过渡类被定义为抽象类，即一个接口首先被一个抽象类先实现（此抽象类通常称为
-适配器类），并在此抽象类中实现若干方法（方法体为空），则以后的子类直接继承此抽象类。就可以有选择
-的覆写所需要的方法。
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>interface Window{&lt;/p>
-</span><span class='line'>
-</span><span class='line'>&lt;pre>&lt;code>public void open();
-</span><span class='line'>public void close();
-</span><span class='line'>public void activated();
-</span><span class='line'>public void iconified();
-</span><span class='line'>public void deiconified();
-</span><span class='line'>&lt;/code>&lt;/pre>
-</span><span class='line'>
-</span><span class='line'>&lt;p>}
-</span><span class='line'>abstract class WindowAdapter implements Window{&lt;/p>
-</span><span class='line'>
-</span><span class='line'>&lt;pre>&lt;code>public void open(){};
-</span><span class='line'>public void close(){};
-</span><span class='line'>public void activated(){};
-</span><span class='line'>public void iconified(){};
-</span><span class='line'>public void deiconified(){};
-</span><span class='line'>&lt;/code>&lt;/pre>
-</span><span class='line'>
-</span><span class='line'>&lt;p>}
-</span><span class='line'>class WindowImpl extends WindowAdapter{&lt;/p>
-</span><span class='line'>
-</span><span class='line'>&lt;pre>&lt;code>public void open(){
-</span><span class='line'>    System.out.println("窗口打开");
-</span><span class='line'>}
-</span><span class='line'>public void close(){
-</span><span class='line'>    System.out.println("窗口关闭");
-</span><span class='line'>}
-</span><span class='line'>&lt;/code>&lt;/pre>
-</span><span class='line'>
-</span><span class='line'>&lt;p>}
-</span><span class='line'>public class AdapterDemo {&lt;/p>
-</span><span class='line'>
-</span><span class='line'>&lt;pre>&lt;code>public static void main(String[] args){
-</span><span class='line'>    Window win = new WindowImpl();
-</span><span class='line'>    win.open();
-</span><span class='line'>    win.close();
 </span><span class='line'>}
 </span><span class='line'>&lt;/code>&lt;/pre>
 </span><span class='line'>
