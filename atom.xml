@@ -4,7 +4,7 @@
   <title><![CDATA[Mz's Blog]]></title>
   <link href="http://z420.github.io/atom.xml" rel="self"/>
   <link href="http://z420.github.io/"/>
-  <updated>2013-11-21T15:09:48+08:00</updated>
+  <updated>2013-11-26T10:35:59+08:00</updated>
   <id>http://z420.github.io/</id>
   <author>
     <name><![CDATA[Mz]]></name>
@@ -12,6 +12,70 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[泛型]]></title>
+    <link href="http://z420.github.io/blog/2013/11/26/generics/"/>
+    <updated>2013-11-26T10:34:00+08:00</updated>
+    <id>http://z420.github.io/blog/2013/11/26/generics</id>
+    <content type="html"><![CDATA[<p>所谓的泛型就是指在对象建立时不指定类中属性的具体类型，而由外部在声明及实例化对象时指定类型。<br/>
+<strong>泛型类定义</strong></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>[访问权限] class 类名称&lt;泛型类型标识1,泛型类型标识2,...,泛型类型标识3>{
+</span><span class='line'>  [访问权限] 泛型类型标识 变量名称;
+</span><span class='line'>  [访问权限] 泛型类型标识 方法名称(){};
+</span><span class='line'>  [访问权限] 返回值类型声明 方法名称(泛型类型标识 变量名称){};
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>泛型对象定义</strong></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>类名称&lt;具体类> 对象名称 = new 类名称&lt;具体类>();</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>class Point&lt;T>{
+</span><span class='line'>  private T var;
+</span><span class='line'>  public T getVar(){
+</span><span class='line'>      return var;
+</span><span class='line'>  }
+</span><span class='line'>  public void setVar(T var){
+</span><span class='line'>      this.var = var;
+</span><span class='line'>  }
+</span><span class='line'>}
+</span><span class='line'>public class GenericsDemo05 {
+</span><span class='line'>  public static void main(String[] args){
+</span><span class='line'>      Point&lt;Integer> p = new Point&lt;Integer>();
+</span><span class='line'>      p.setVar(30);
+</span><span class='line'>      System.out.println(p.getVar() * 2);
+</span><span class='line'>  }
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Java多线程]]></title>

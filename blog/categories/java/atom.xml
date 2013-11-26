@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Java | Mz's Blog]]></title>
   <link href="http://z420.github.io/blog/categories/java/atom.xml" rel="self"/>
   <link href="http://z420.github.io/"/>
-  <updated>2013-11-21T15:09:48+08:00</updated>
+  <updated>2013-11-26T10:35:59+08:00</updated>
   <id>http://z420.github.io/</id>
   <author>
     <name><![CDATA[Mz]]></name>
@@ -12,6 +12,79 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[泛型]]></title>
+    <link href="http://z420.github.io/blog/2013/11/26/generics/"/>
+    <updated>2013-11-26T10:34:00+08:00</updated>
+    <id>http://z420.github.io/blog/2013/11/26/generics</id>
+    <content type="html"><![CDATA[<p>所谓的泛型就是指在对象建立时不指定类中属性的具体类型，而由外部在声明及实例化对象时指定类型。<br/>
+<strong>泛型类定义</strong>
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>[访问权限] class 类名称&lt;泛型类型标识1,泛型类型标识2,&hellip;,泛型类型标识3>{&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;pre>&lt;code>[访问权限] 泛型类型标识 变量名称;
+</span><span class='line'>[访问权限] 泛型类型标识 方法名称(){};
+</span><span class='line'>[访问权限] 返回值类型声明 方法名称(泛型类型标识 变量名称){};
+</span><span class='line'>&lt;/code>&lt;/pre>
+</span><span class='line'>
+</span><span class='line'>&lt;p>}</span></code></pre></td></tr></table></div></figure></notextile></div>
+<strong>泛型对象定义</strong>
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>类名称&lt;具体类> 对象名称 = new 类名称&lt;具体类>();</span></code></pre></td></tr></table></div></figure></notextile></div>
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>class Point&lt;T>{&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;pre>&lt;code>private T var;
+</span><span class='line'>public T getVar(){
+</span><span class='line'>    return var;
+</span><span class='line'>}
+</span><span class='line'>public void setVar(T var){
+</span><span class='line'>    this.var = var;
+</span><span class='line'>}
+</span><span class='line'>&lt;/code>&lt;/pre>
+</span><span class='line'>
+</span><span class='line'>&lt;p>}
+</span><span class='line'>public class GenericsDemo05 {&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;pre>&lt;code>public static void main(String[] args){
+</span><span class='line'>    Point&lt;Integer&gt; p = new Point&lt;Integer&gt;();
+</span><span class='line'>    p.setVar(30);
+</span><span class='line'>    System.out.println(p.getVar() * 2);
+</span><span class='line'>}
+</span><span class='line'>&lt;/code>&lt;/pre>
+</span><span class='line'>
+</span><span class='line'>&lt;p>}</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Java多线程]]></title>
@@ -374,109 +447,6 @@ Thread类是在java.lang包中定义的，一个类只要继承了Thread类，�
 </span><span class='line'>    Window win = new WindowImpl();
 </span><span class='line'>    win.open();
 </span><span class='line'>    win.close();
-</span><span class='line'>}
-</span><span class='line'>&lt;/code>&lt;/pre>
-</span><span class='line'>
-</span><span class='line'>&lt;p>}</span></code></pre></td></tr></table></div></figure></notextile></div></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[设计模式-工厂设计]]></title>
-    <link href="http://z420.github.io/blog/2013/11/16/factory/"/>
-    <updated>2013-11-16T16:32:00+08:00</updated>
-    <id>http://z420.github.io/blog/2013/11/16/factory</id>
-    <content type="html"><![CDATA[<p>工厂设计：程序在接口和子类之间加入了一个过渡端，通过此过渡端取得接口的实例化对象，一般都会称这个过渡端为工厂类。
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-<span class='line-number'>43</span>
-<span class='line-number'>44</span>
-<span class='line-number'>45</span>
-<span class='line-number'>46</span>
-<span class='line-number'>47</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>interface Fruit{&lt;/p>
-</span><span class='line'>
-</span><span class='line'>&lt;pre>&lt;code>public void eat();
-</span><span class='line'>&lt;/code>&lt;/pre>
-</span><span class='line'>
-</span><span class='line'>&lt;p>}
-</span><span class='line'>class Apple implements Fruit{&lt;/p>
-</span><span class='line'>
-</span><span class='line'>&lt;pre>&lt;code>public void eat(){
-</span><span class='line'>    System.out.println("吃苹果");
-</span><span class='line'>}
-</span><span class='line'>&lt;/code>&lt;/pre>
-</span><span class='line'>
-</span><span class='line'>&lt;p>}
-</span><span class='line'>class Orange implements Fruit{&lt;/p>
-</span><span class='line'>
-</span><span class='line'>&lt;pre>&lt;code>public void eat(){
-</span><span class='line'>    System.out.println("吃橙子");
-</span><span class='line'>}
-</span><span class='line'>&lt;/code>&lt;/pre>
-</span><span class='line'>
-</span><span class='line'>&lt;p>}
-</span><span class='line'>class Factory{                                                     //定义工厂类&lt;/p>
-</span><span class='line'>
-</span><span class='line'>&lt;pre>&lt;code>public static Fruit getInstance(String className){
-</span><span class='line'>    Fruit f = null;                                    //定义接口对象
-</span><span class='line'>    if("apple".equals(className)){             //判断哪个子类的标记
-</span><span class='line'>        f = new Apple();               //通过apple类实例化接口
-</span><span class='line'>    }
-</span><span class='line'>    if("orange".equals(className)){
-</span><span class='line'>        f = new Orange();
-</span><span class='line'>    }
-</span><span class='line'>    return f;
-</span><span class='line'>}
-</span><span class='line'>&lt;/code>&lt;/pre>
-</span><span class='line'>
-</span><span class='line'>&lt;p>}
-</span><span class='line'>public class InterfaceDemo04 {&lt;/p>
-</span><span class='line'>
-</span><span class='line'>&lt;pre>&lt;code>public static void main(String[] args){
-</span><span class='line'>    Fruit f = null;                                    //定义接口对象
-</span><span class='line'>    f = Factory.getInstance("apple");                  //通过工厂取得实例
-</span><span class='line'>    f.eat();                       //调用方法
 </span><span class='line'>}
 </span><span class='line'>&lt;/code>&lt;/pre>
 </span><span class='line'>
