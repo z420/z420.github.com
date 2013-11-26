@@ -156,6 +156,96 @@
 </span><span class='line'>  }
 </span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
 
+
+<p><strong>构造方法上应用泛型</strong></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>[访问权限] 构造方法 ([&lt;泛型类型> 参数名称]){
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>class Point&lt;T>{
+</span><span class='line'>  private T var;
+</span><span class='line'>  public Point(T var){
+</span><span class='line'>      this.var = var;
+</span><span class='line'>  }
+</span><span class='line'>  public T getVar(){
+</span><span class='line'>      return var;
+</span><span class='line'>  }
+</span><span class='line'>}
+</span><span class='line'>public class GenericsDemo08 {
+</span><span class='line'>  public static void main(String[] args){
+</span><span class='line'>      Point&lt;String> p = null;
+</span><span class='line'>      p = new Point&lt;String>("李");
+</span><span class='line'>      System.out.println("姓名：" + p.getVar());
+</span><span class='line'>  }
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>如果一个类中有多个属性需要使用不同的泛型声明，则可以在声明类时指定多个泛型类型</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>class Notepad&lt;K,V>{
+</span><span class='line'>  private K key;
+</span><span class='line'>  private V value;
+</span><span class='line'>  public Notepad(K key,V value){
+</span><span class='line'>      this.key = key;
+</span><span class='line'>      this.value = value;
+</span><span class='line'>  }
+</span><span class='line'>  public K getKey(){
+</span><span class='line'>      return key;
+</span><span class='line'>  }
+</span><span class='line'>  public V getValue(){
+</span><span class='line'>      return value;
+</span><span class='line'>  }
+</span><span class='line'>}
+</span><span class='line'>public class GenericsDemo09 {
+</span><span class='line'>  public static void main(String[] args){
+</span><span class='line'>      Notepad&lt;String,Integer> n = null;
+</span><span class='line'>      n = new Notepad&lt;String,Integer>("李",30);
+</span><span class='line'>      System.out.println("姓名：" + n.getKey() + " 年龄：" + n.getValue());
+</span><span class='line'>  }
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
 </div>
   
   
