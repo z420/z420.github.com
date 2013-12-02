@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>异常处理 - Mz's Blog</title>
+  <title>泛型操作-通配符 - Mz's Blog</title>
   <meta name="author" content="Mz">
 
   
-  <meta name="description" content="异常处理格式 1
+  <meta name="description" content="1.Java中引入了通配符“？”，表示可以接收此类型的任意泛型对象。 1
 2
 3
 4
@@ -19,15 +19,19 @@
 8
 9
 10
-try{ //有可能出现异常的语句
-}catch(异常类 异常对象){ //编写异常的处理语句
-}[catch(异常类 异常对象){ //编写异常的处理语句
-} ... ]
-[finally{ 一定会运行到的程序代码;
-}] 1
-2
-3
-4 &hellip;">
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+class Info&lt;T>{ private T var; public T getVar(){ &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -36,7 +40,7 @@ try{ //有可能出现异常的语句
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://z420.github.io/blog/2013/11/18/exception">
+  <link rel="canonical" href="http://z420.github.io/blog/2013/11/26/tongpeifu">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Mz's Blog" type="application/atom+xml">
@@ -85,7 +89,7 @@ try{ //有可能出现异常的语句
   
   <header>
     
-      <h1 class="entry-title">异常处理</h1>
+      <h1 class="entry-title">泛型操作-通配符</h1>
     
     
       <p class="meta">
@@ -101,7 +105,7 @@ try{ //有可能出现异常的语句
   
 
 
-<time datetime="2013-11-18T14:44:00+08:00" pubdate data-updated="true">Nov 18<span>th</span>, 2013</time>
+<time datetime="2013-11-26T19:55:00+08:00" pubdate data-updated="true">Nov 26<span>th</span>, 2013</time>
         
            | <a href="#disqus_thread"
              data-disqus-identifier="http://z420.github.io">Comments</a>
@@ -111,31 +115,7 @@ try{ //有可能出现异常的语句
   </header>
 
 
-<div class="entry-content"><p>异常处理格式</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>try{
-</span><span class='line'>  //有可能出现异常的语句
-</span><span class='line'>}catch(异常类 异常对象){
-</span><span class='line'>  //编写异常的处理语句
-</span><span class='line'>}[catch(异常类 异常对象){
-</span><span class='line'>  //编写异常的处理语句
-</span><span class='line'>} ... ]
-</span><span class='line'>[finally{
-</span><span class='line'>  一定会运行到的程序代码;
-</span><span class='line'>}]</span></code></pre></td></tr></table></div></figure>
-
-
-<hr />
+<div class="entry-content"><p>1.Java中引入了通配符“？”，表示可以接收此类型的任意泛型对象。</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -149,42 +129,38 @@ try{ //有可能出现异常的语句
 <span class='line-number'>10</span>
 <span class='line-number'>11</span>
 <span class='line-number'>12</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>class Math{
-</span><span class='line'>  public int div(int i, int j) throws Exception{
-</span><span class='line'>      int temp = i / j;
-</span><span class='line'>      return temp;
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>class Info&lt;T>{
+</span><span class='line'>  private T var;
+</span><span class='line'>  public T getVar(){
+</span><span class='line'>      return var;
+</span><span class='line'>  }
+</span><span class='line'>  public void setVar(T var){
+</span><span class='line'>      this.var = var;
+</span><span class='line'>  }
+</span><span class='line'>  public String toString(){
+</span><span class='line'>      return this.var.toString();
 </span><span class='line'>  }
 </span><span class='line'>}
-</span><span class='line'>public class ThrowsDemo02{
-</span><span class='line'>  public static void main(String[] args) throws Exception{
-</span><span class='line'>      Math m = new Math();
-</span><span class='line'>      System.out.println("除法操作：" + m.div(10, 2));
+</span><span class='line'>public class GenericsDemo10 {
+</span><span class='line'>  public static void main(String[] args){
+</span><span class='line'>      Info&lt;Object> i = new Info&lt;Object>();       //警告，没有指定泛型类型。
+</span><span class='line'>      i.setVar("王");
+</span><span class='line'>      fun(i);
+</span><span class='line'>  }
+</span><span class='line'>  public static void fun(Info&lt;?> temp){
+</span><span class='line'>      System.out.println("姓名：" + temp);
 </span><span class='line'>  }
 </span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
-
-
-<hr />
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>public class ThrowDemo01{
-</span><span class='line'>  public static void main(String[] args){
-</span><span class='line'>      try{
-</span><span class='line'>          throw new Exception("自己抛出的异常！");  //抛出异常的实例化对象
-</span><span class='line'>      }catch(Exception e){                         //捕捉异常
-</span><span class='line'>          System.out.println(e);
-</span><span class='line'>      }
-</span><span class='line'>  }
-</span><span class='line'>}
-</span><span class='line'>//java.lang.Exception: 自己抛出的异常！</span></code></pre></td></tr></table></div></figure>
 
 </div>
 
@@ -208,7 +184,7 @@ try{ //有可能出现异常的语句
   
 
 
-<time datetime="2013-11-18T14:44:00+08:00" pubdate data-updated="true">Nov 18<span>th</span>, 2013</time>
+<time datetime="2013-11-26T19:55:00+08:00" pubdate data-updated="true">Nov 26<span>th</span>, 2013</time>
       
 
 <span class="categories">
@@ -229,10 +205,10 @@ try{ //有可能出现异常的语句
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2013/11/16/peopleother/" title="Previous Post: 关于中国人口的一些事">&laquo; 关于中国人口的一些事</a>
+        <a class="basic-alignment left" href="/blog/2013/11/26/generics-warnning/" title="Previous Post: 泛型的安全警告">&laquo; 泛型的安全警告</a>
       
       
-        <a class="basic-alignment right" href="/blog/2013/11/20/run-thread/" title="Next Post: Java多线程">Java多线程 &raquo;</a>
+        <a class="basic-alignment right" href="/blog/2013/11/29/shouxianfanxing/" title="Next Post: 受限泛型">受限泛型 &raquo;</a>
       
     </p>
   </footer>
@@ -306,8 +282,8 @@ try{ //有可能出现异常的语句
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://z420.github.io/blog/2013/11/18/exception/';
-        var disqus_url = 'http://z420.github.io/blog/2013/11/18/exception/';
+        var disqus_identifier = 'http://z420.github.io/blog/2013/11/26/tongpeifu/';
+        var disqus_url = 'http://z420.github.io/blog/2013/11/26/tongpeifu/';
         var disqus_script = 'embed.js';
       
     (function () {

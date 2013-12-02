@@ -5,29 +5,13 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>异常处理 - Mz's Blog</title>
+  <title>泛型方法 - Mz's Blog</title>
   <meta name="author" content="Mz">
 
   
-  <meta name="description" content="异常处理格式 1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-try{ //有可能出现异常的语句
-}catch(异常类 异常对象){ //编写异常的处理语句
-}[catch(异常类 异常对象){ //编写异常的处理语句
-} ... ]
-[finally{ 一定会运行到的程序代码;
-}] 1
-2
-3
-4 &hellip;">
+  <meta name="description" content="可以在类中定义泛型化的方法，也可以在类中定义泛型化的方法。泛型方法的定义与其所在的类是否是泛型类是没有任何关系的，所在的类可以是泛型类，也可以不是泛型类。
+在泛型方法中可以定义泛型参数，此时，参数的类型就是传入数据的类型，可以使用如下的格式定义泛型方法。 1
+[访问权限]&lt;泛型标识> &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -36,7 +20,7 @@ try{ //有可能出现异常的语句
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://z420.github.io/blog/2013/11/18/exception">
+  <link rel="canonical" href="http://z420.github.io/blog/2013/11/29/fanxing-fun">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Mz's Blog" type="application/atom+xml">
@@ -85,7 +69,7 @@ try{ //有可能出现异常的语句
   
   <header>
     
-      <h1 class="entry-title">异常处理</h1>
+      <h1 class="entry-title">泛型方法</h1>
     
     
       <p class="meta">
@@ -101,7 +85,7 @@ try{ //有可能出现异常的语句
   
 
 
-<time datetime="2013-11-18T14:44:00+08:00" pubdate data-updated="true">Nov 18<span>th</span>, 2013</time>
+<time datetime="2013-11-29T15:47:00+08:00" pubdate data-updated="true">Nov 29<span>th</span>, 2013</time>
         
            | <a href="#disqus_thread"
              data-disqus-identifier="http://z420.github.io">Comments</a>
@@ -111,80 +95,21 @@ try{ //有可能出现异常的语句
   </header>
 
 
-<div class="entry-content"><p>异常处理格式</p>
+<div class="entry-content"><p>可以在类中定义泛型化的方法，也可以在类中定义泛型化的方法。泛型方法的定义与其所在的类是否是泛型类是没有任何关系的，所在的类可以是泛型类，也可以不是泛型类。<br/>
+在泛型方法中可以定义泛型参数，此时，参数的类型就是传入数据的类型，可以使用如下的格式定义泛型方法。</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>try{
-</span><span class='line'>  //有可能出现异常的语句
-</span><span class='line'>}catch(异常类 异常对象){
-</span><span class='line'>  //编写异常的处理语句
-</span><span class='line'>}[catch(异常类 异常对象){
-</span><span class='line'>  //编写异常的处理语句
-</span><span class='line'>} ... ]
-</span><span class='line'>[finally{
-</span><span class='line'>  一定会运行到的程序代码;
-</span><span class='line'>}]</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>[访问权限]&lt;泛型标识> 泛型标识 方法名称([泛型标识 参数名称])</span></code></pre></td></tr></table></div></figure>
 
 
-<hr />
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>class Math{
-</span><span class='line'>  public int div(int i, int j) throws Exception{
-</span><span class='line'>      int temp = i / j;
-</span><span class='line'>      return temp;
-</span><span class='line'>  }
-</span><span class='line'>}
-</span><span class='line'>public class ThrowsDemo02{
-</span><span class='line'>  public static void main(String[] args) throws Exception{
-</span><span class='line'>      Math m = new Math();
-</span><span class='line'>      System.out.println("除法操作：" + m.div(10, 2));
-</span><span class='line'>  }
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
 
 
-<hr />
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"></pre></td><td class='code'><pre><code class=''></code></pre></td></tr></table></div></figure>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>public class ThrowDemo01{
-</span><span class='line'>  public static void main(String[] args){
-</span><span class='line'>      try{
-</span><span class='line'>          throw new Exception("自己抛出的异常！");  //抛出异常的实例化对象
-</span><span class='line'>      }catch(Exception e){                         //捕捉异常
-</span><span class='line'>          System.out.println(e);
-</span><span class='line'>      }
-</span><span class='line'>  }
-</span><span class='line'>}
-</span><span class='line'>//java.lang.Exception: 自己抛出的异常！</span></code></pre></td></tr></table></div></figure>
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"></pre></td><td class='code'><pre><code class=''></code></pre></td></tr></table></div></figure>
 
 </div>
 
@@ -208,7 +133,7 @@ try{ //有可能出现异常的语句
   
 
 
-<time datetime="2013-11-18T14:44:00+08:00" pubdate data-updated="true">Nov 18<span>th</span>, 2013</time>
+<time datetime="2013-11-29T15:47:00+08:00" pubdate data-updated="true">Nov 29<span>th</span>, 2013</time>
       
 
 <span class="categories">
@@ -229,10 +154,8 @@ try{ //有可能出现异常的语句
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2013/11/16/peopleother/" title="Previous Post: 关于中国人口的一些事">&laquo; 关于中国人口的一些事</a>
+        <a class="basic-alignment left" href="/blog/2013/11/29/fanxing-interface/" title="Previous Post: 泛型接口">&laquo; 泛型接口</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2013/11/20/run-thread/" title="Next Post: Java多线程">Java多线程 &raquo;</a>
       
     </p>
   </footer>
@@ -306,8 +229,8 @@ try{ //有可能出现异常的语句
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://z420.github.io/blog/2013/11/18/exception/';
-        var disqus_url = 'http://z420.github.io/blog/2013/11/18/exception/';
+        var disqus_identifier = 'http://z420.github.io/blog/2013/11/29/fanxing-fun/';
+        var disqus_url = 'http://z420.github.io/blog/2013/11/29/fanxing-fun/';
         var disqus_script = 'embed.js';
       
     (function () {

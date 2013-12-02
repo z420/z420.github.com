@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Java | Mz's Blog]]></title>
   <link href="http://z420.github.io/blog/categories/java/atom.xml" rel="self"/>
   <link href="http://z420.github.io/"/>
-  <updated>2013-11-26T19:14:59+08:00</updated>
+  <updated>2013-12-02T10:27:05+08:00</updated>
   <id>http://z420.github.io/</id>
   <author>
     <name><![CDATA[Mz]]></name>
@@ -12,6 +12,458 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[泛型方法]]></title>
+    <link href="http://z420.github.io/blog/2013/11/29/fanxing-fun/"/>
+    <updated>2013-11-29T15:47:00+08:00</updated>
+    <id>http://z420.github.io/blog/2013/11/29/fanxing-fun</id>
+    <content type="html"><![CDATA[<p>可以在类中定义泛型化的方法，也可以在类中定义泛型化的方法。泛型方法的定义与其所在的类是否是泛型类是没有任何关系的，所在的类可以是泛型类，也可以不是泛型类。<br/>
+在泛型方法中可以定义泛型参数，此时，参数的类型就是传入数据的类型，可以使用如下的格式定义泛型方法。
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>[访问权限]&lt;泛型标识> 泛型标识 方法名称([泛型标识 参数名称])</span></code></pre></td></tr></table></div></figure></notextile></div>
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;p></span></code></pre></td></tr></table></div></figure></notextile></div>
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;p></span></code></pre></td></tr></table></div></figure></notextile></div></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[泛型接口]]></title>
+    <link href="http://z420.github.io/blog/2013/11/29/fanxing-interface/"/>
+    <updated>2013-11-29T11:08:00+08:00</updated>
+    <id>http://z420.github.io/blog/2013/11/29/fanxing-interface</id>
+    <content type="html"><![CDATA[<p><strong>泛型接口</strong>
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>[访问权限] interface 接口名称&lt;泛型标识>｛
+</span><span class='line'>｝</span></code></pre></td></tr></table></div></figure></notextile></div>
+<strong>泛型接口的两种实现方式</strong><br/>
+1.直接在子类后声明泛型-在子类的定义上声明泛型类型。<br/>
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>interface Info&lt;T>{&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;pre>&lt;code>public T getVar();
+</span><span class='line'>&lt;/code>&lt;/pre>
+</span><span class='line'>
+</span><span class='line'>&lt;p>}
+</span><span class='line'>class InfoImpl&lt;T> implements Info&lt;T>{&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;pre>&lt;code>private T var;
+</span><span class='line'>public InfoImpl(T var){
+</span><span class='line'>    this.setVar(var);
+</span><span class='line'>}
+</span><span class='line'>public void setVar(T var){
+</span><span class='line'>    this.var = var;
+</span><span class='line'>}
+</span><span class='line'>public T getVar(){
+</span><span class='line'>    return this.var;
+</span><span class='line'>}
+</span><span class='line'>&lt;/code>&lt;/pre>
+</span><span class='line'>
+</span><span class='line'>&lt;p>}
+</span><span class='line'>public class GenericsDemo11 {&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;pre>&lt;code>public static void main(String[] args){
+</span><span class='line'>    Info&lt;String&gt; i = null;  //定义接口对象
+</span><span class='line'>    i = new InfoImpl&lt;String&gt;("李");  //通过子类实例化此对象
+</span><span class='line'>    System.out.println("姓名：" + i.getVar());
+</span><span class='line'>}
+</span><span class='line'>&lt;/code>&lt;/pre>
+</span><span class='line'>
+</span><span class='line'>&lt;p>}</span></code></pre></td></tr></table></div></figure></notextile></div>
+2.直接在子类实现的接口中明确的给出泛型类型-直接在接口中指定具体类型。
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>interface Info&lt;T>{&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;pre>&lt;code>public T getVar();
+</span><span class='line'>&lt;/code>&lt;/pre>
+</span><span class='line'>
+</span><span class='line'>&lt;p>}
+</span><span class='line'>class InfoImpl implements Info&lt;String>{  //定义泛型接口的子类，指定类型为String&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;pre>&lt;code>private String var;
+</span><span class='line'>public InfoImpl(String var){
+</span><span class='line'>    this.setVar(var);
+</span><span class='line'>}
+</span><span class='line'>public void setVar(String var){
+</span><span class='line'>    this.var = var;
+</span><span class='line'>}
+</span><span class='line'>public String getVar(){
+</span><span class='line'>    return this.var;
+</span><span class='line'>}
+</span><span class='line'>&lt;/code>&lt;/pre>
+</span><span class='line'>
+</span><span class='line'>&lt;p>}
+</span><span class='line'>public class GenericsDemo11 {&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;pre>&lt;code>public static void main(String[] args){
+</span><span class='line'>    Info&lt;String&gt; i = null;  //定义接口对象,指定泛型
+</span><span class='line'>    i = new InfoImpl("李");  //通过子类实例化此对象，不用指定泛型
+</span><span class='line'>    System.out.println("姓名：" + i.getVar());
+</span><span class='line'>}
+</span><span class='line'>&lt;/code>&lt;/pre>
+</span><span class='line'>
+</span><span class='line'>&lt;p>}</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[受限泛型]]></title>
+    <link href="http://z420.github.io/blog/2013/11/29/shouxianfanxing/"/>
+    <updated>2013-11-29T09:22:00+08:00</updated>
+    <id>http://z420.github.io/blog/2013/11/29/shouxianfanxing</id>
+    <content type="html"><![CDATA[<p>在引用传递中，在泛型操作中也可以设置一个泛型对象的范围上限和范围下限。范围上限使用extends关键字声明，表示参数化的类型可能是所指定的类型或者是此类型的子类，而范围下限使用super进行声明，表示参数化的类型可能是所指定的类型，或者是此类型的父类型，或是Object类，具体格式如下。<br/>
+<strong>设置上限</strong><br/>
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>声明对象：类名称&lt;? extends 类> 对象名称
+</span><span class='line'>定义类：[访问权限] 类名称&lt;泛型标识 extends 类>{}</span></code></pre></td></tr></table></div></figure></notextile></div>
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>class Info&lt;T>{&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;pre>&lt;code>private T var;
+</span><span class='line'>public T getVar(){
+</span><span class='line'>    return var;
+</span><span class='line'>}
+</span><span class='line'>public void setVar(T var){
+</span><span class='line'>    this.var = var;
+</span><span class='line'>}
+</span><span class='line'>public String toString(){
+</span><span class='line'>    return this.var.toString();
+</span><span class='line'>}
+</span><span class='line'>&lt;/code>&lt;/pre>
+</span><span class='line'>
+</span><span class='line'>&lt;p>}
+</span><span class='line'>public class GenericsDemo10 {&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;pre>&lt;code>public static void main(String[] args){
+</span><span class='line'>    Info&lt;Integer&gt; i1 = new Info&lt;Integer&gt;();
+</span><span class='line'>    Info&lt;Float&gt; i2 = new Info&lt;Float&gt;();
+</span><span class='line'>    i1.setVar(30);
+</span><span class='line'>    i2.setVar(30.1f);
+</span><span class='line'>    fun(i1);
+</span><span class='line'>    fun(i2);
+</span><span class='line'>}
+</span><span class='line'>public static void fun(Info&lt;? extends Number&gt; temp){
+</span><span class='line'>    System.out.print(temp + " ");
+</span><span class='line'>}
+</span><span class='line'>&lt;/code>&lt;/pre>
+</span><span class='line'>
+</span><span class='line'>&lt;p>}</span></code></pre></td></tr></table></div></figure></notextile></div><br/>
+<strong>在类定义时指定泛型的上限</strong><br/>
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>class Info&lt;T extends Number>{&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;pre>&lt;code>private T var;
+</span><span class='line'>public T getVar(){
+</span><span class='line'>    return var;
+</span><span class='line'>}
+</span><span class='line'>public void setVar(T var){
+</span><span class='line'>    this.var = var;
+</span><span class='line'>}
+</span><span class='line'>public String toString(){
+</span><span class='line'>    return this.var.toString();
+</span><span class='line'>}
+</span><span class='line'>&lt;/code>&lt;/pre>
+</span><span class='line'>
+</span><span class='line'>&lt;p>}
+</span><span class='line'>public class GenericsDemo10 {&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;pre>&lt;code>public static void main(String[] args){
+</span><span class='line'>    Info&lt;Integer&gt; i1 = new Info&lt;Integer&gt;();
+</span><span class='line'>    Info&lt;Float&gt; i2 = new Info&lt;Float&gt;();
+</span><span class='line'>    i1.setVar(30);
+</span><span class='line'>    i2.setVar(30.1f);
+</span><span class='line'>    System.out.println(i1.getVar() + " " + i2.getVar());
+</span><span class='line'>}
+</span><span class='line'>&lt;/code>&lt;/pre>
+</span><span class='line'>
+</span><span class='line'>&lt;p>}</span></code></pre></td></tr></table></div></figure></notextile></div>
+<strong>设置下限</strong><br/>
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>声明对象：类名称&lt;? super 类> 对象名称
+</span><span class='line'>定义类：[访问权限] 类名称&lt;泛型标识 extends 类>{}</span></code></pre></td></tr></table></div></figure></notextile></div>
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>class Info&lt;T>{&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;pre>&lt;code>private T var;
+</span><span class='line'>public T getVar(){
+</span><span class='line'>    return var;
+</span><span class='line'>}
+</span><span class='line'>public void setVar(T var){
+</span><span class='line'>    this.var = var;
+</span><span class='line'>}
+</span><span class='line'>public String toString(){
+</span><span class='line'>    return this.var.toString();
+</span><span class='line'>}
+</span><span class='line'>&lt;/code>&lt;/pre>
+</span><span class='line'>
+</span><span class='line'>&lt;p>}
+</span><span class='line'>public class GenericsDemo10 {&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;pre>&lt;code>public static void main(String[] args){
+</span><span class='line'>    Info&lt;Object&gt; i1 = new Info&lt;Object&gt;();
+</span><span class='line'>    Info&lt;String&gt; i2 = new Info&lt;String&gt;();
+</span><span class='line'>    i1.setVar(new Object());
+</span><span class='line'>    i2.setVar("王");
+</span><span class='line'>    fun(i1);
+</span><span class='line'>    fun(i2);
+</span><span class='line'>}
+</span><span class='line'>public static void fun(Info&lt;? super String&gt; temp){
+</span><span class='line'>    System.out.println("内容：" + temp);
+</span><span class='line'>}
+</span><span class='line'>&lt;/code>&lt;/pre>
+</span><span class='line'>
+</span><span class='line'>&lt;p>}</span></code></pre></td></tr></table></div></figure></notextile></div>
+&lt;一个类的子类可以通过对象多态性为其父类实例化，但是在泛型操作中，子类的泛型类型是无法使用父类的泛型类型接收的，例如，info<String>不能使用info<Object>接收。
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>public class Demo{&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;pre>&lt;code>public static void main(String[] args){
+</span><span class='line'>    Info&lt;String&gt; i1 = new Info&lt;String&gt;();
+</span><span class='line'>    Info&lt;String&gt; i2 = null;
+</span><span class='line'>    i2 = i1; //此处子类泛型不能向上转型为父类泛型，报错。
+</span><span class='line'>}
+</span><span class='line'>&lt;/code>&lt;/pre>
+</span><span class='line'>
+</span><span class='line'>&lt;p>}</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[泛型操作-通配符]]></title>
+    <link href="http://z420.github.io/blog/2013/11/26/tongpeifu/"/>
+    <updated>2013-11-26T19:55:00+08:00</updated>
+    <id>http://z420.github.io/blog/2013/11/26/tongpeifu</id>
+    <content type="html"><![CDATA[<p>1.Java中引入了通配符“？”，表示可以接收此类型的任意泛型对象。
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>class Info&lt;T>{&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;pre>&lt;code>private T var;
+</span><span class='line'>public T getVar(){
+</span><span class='line'>    return var;
+</span><span class='line'>}
+</span><span class='line'>public void setVar(T var){
+</span><span class='line'>    this.var = var;
+</span><span class='line'>}
+</span><span class='line'>public String toString(){
+</span><span class='line'>    return this.var.toString();
+</span><span class='line'>}
+</span><span class='line'>&lt;/code>&lt;/pre>
+</span><span class='line'>
+</span><span class='line'>&lt;p>}
+</span><span class='line'>public class GenericsDemo10 {&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;pre>&lt;code>public static void main(String[] args){
+</span><span class='line'>    Info&lt;Object&gt; i = new Info&lt;Object&gt;();       //警告，没有指定泛型类型。
+</span><span class='line'>    i.setVar("王");
+</span><span class='line'>    fun(i);
+</span><span class='line'>}
+</span><span class='line'>public static void fun(Info&lt;?&gt; temp){
+</span><span class='line'>    System.out.println("姓名：" + temp);
+</span><span class='line'>}
+</span><span class='line'>&lt;/code>&lt;/pre>
+</span><span class='line'>
+</span><span class='line'>&lt;p>}&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;p></span></code></pre></td></tr></table></div></figure></notextile></div></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[泛型的安全警告]]></title>
@@ -88,461 +540,6 @@
 </span><span class='line'>    Info&lt;Object&gt; i = new Info&lt;Object&gt;();  //指定Object为泛型类型。
 </span><span class='line'>    i.setVar("王");
 </span><span class='line'>    System.out.println("姓名：" + i.getVar());
-</span><span class='line'>}
-</span><span class='line'>&lt;/code>&lt;/pre>
-</span><span class='line'>
-</span><span class='line'>&lt;p>}</span></code></pre></td></tr></table></div></figure></notextile></div></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[泛型]]></title>
-    <link href="http://z420.github.io/blog/2013/11/26/generics/"/>
-    <updated>2013-11-26T10:34:00+08:00</updated>
-    <id>http://z420.github.io/blog/2013/11/26/generics</id>
-    <content type="html"><![CDATA[<p>所谓的泛型就是指在对象建立时不指定类中属性的具体类型，而由外部在声明及实例化对象时指定类型。<br/>
-<strong>泛型类定义</strong>
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>[访问权限] class 类名称&lt;泛型类型标识1,泛型类型标识2,&hellip;,泛型类型标识3>{&lt;/p>
-</span><span class='line'>
-</span><span class='line'>&lt;pre>&lt;code>[访问权限] 泛型类型标识 变量名称;
-</span><span class='line'>[访问权限] 泛型类型标识 方法名称(){};
-</span><span class='line'>[访问权限] 返回值类型声明 方法名称(泛型类型标识 变量名称){};
-</span><span class='line'>&lt;/code>&lt;/pre>
-</span><span class='line'>
-</span><span class='line'>&lt;p>}</span></code></pre></td></tr></table></div></figure></notextile></div>
-<strong>泛型对象定义</strong>
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>类名称&lt;具体类> 对象名称 = new 类名称&lt;具体类>();</span></code></pre></td></tr></table></div></figure></notextile></div>
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>class Point&lt;T>{&lt;/p>
-</span><span class='line'>
-</span><span class='line'>&lt;pre>&lt;code>private T var;
-</span><span class='line'>public T getVar(){
-</span><span class='line'>    return var;
-</span><span class='line'>}
-</span><span class='line'>public void setVar(T var){
-</span><span class='line'>    this.var = var;
-</span><span class='line'>}
-</span><span class='line'>&lt;/code>&lt;/pre>
-</span><span class='line'>
-</span><span class='line'>&lt;p>}
-</span><span class='line'>public class GenericsDemo05 {&lt;/p>
-</span><span class='line'>
-</span><span class='line'>&lt;pre>&lt;code>public static void main(String[] args){
-</span><span class='line'>    Point&lt;Integer&gt; p = new Point&lt;Integer&gt;();
-</span><span class='line'>    p.setVar(30);
-</span><span class='line'>    System.out.println(p.getVar() * 2);
-</span><span class='line'>}
-</span><span class='line'>&lt;/code>&lt;/pre>
-</span><span class='line'>
-</span><span class='line'>&lt;p>}</span></code></pre></td></tr></table></div></figure></notextile></div>
-<strong>构造方法上应用泛型</strong>
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>[访问权限] 构造方法 ([&lt;泛型类型> 参数名称]){
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure></notextile></div></p>
-
-<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>class Point&lt;T>{&lt;/p>
-</span><span class='line'>
-</span><span class='line'>&lt;pre>&lt;code>private T var;
-</span><span class='line'>public Point(T var){
-</span><span class='line'>    this.var = var;
-</span><span class='line'>}
-</span><span class='line'>public T getVar(){
-</span><span class='line'>    return var;
-</span><span class='line'>}
-</span><span class='line'>&lt;/code>&lt;/pre>
-</span><span class='line'>
-</span><span class='line'>&lt;p>}
-</span><span class='line'>public class GenericsDemo08 {&lt;/p>
-</span><span class='line'>
-</span><span class='line'>&lt;pre>&lt;code>public static void main(String[] args){
-</span><span class='line'>    Point&lt;String&gt; p = null;
-</span><span class='line'>    p = new Point&lt;String&gt;("李");
-</span><span class='line'>    System.out.println("姓名：" + p.getVar());
-</span><span class='line'>}
-</span><span class='line'>&lt;/code>&lt;/pre>
-</span><span class='line'>
-</span><span class='line'>&lt;p>}&lt;/p>
-</span><span class='line'>
-</span><span class='line'>&lt;p></span></code></pre></td></tr></table></div></figure></notextile></div>
-如果一个类中有多个属性需要使用不同的泛型声明，则可以在声明类时指定多个泛型类型
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>class Notepad&lt;K,V>{&lt;/p>
-</span><span class='line'>
-</span><span class='line'>&lt;pre>&lt;code>private K key;
-</span><span class='line'>private V value;
-</span><span class='line'>public Notepad(K key,V value){
-</span><span class='line'>    this.key = key;
-</span><span class='line'>    this.value = value;
-</span><span class='line'>}
-</span><span class='line'>public K getKey(){
-</span><span class='line'>    return key;
-</span><span class='line'>}
-</span><span class='line'>public V getValue(){
-</span><span class='line'>    return value;
-</span><span class='line'>}
-</span><span class='line'>&lt;/code>&lt;/pre>
-</span><span class='line'>
-</span><span class='line'>&lt;p>}
-</span><span class='line'>public class GenericsDemo09 {&lt;/p>
-</span><span class='line'>
-</span><span class='line'>&lt;pre>&lt;code>public static void main(String[] args){
-</span><span class='line'>    Notepad&lt;String,Integer&gt; n = null;
-</span><span class='line'>    n = new Notepad&lt;String,Integer&gt;("李",30);
-</span><span class='line'>    System.out.println("姓名：" + n.getKey() + " 年龄：" + n.getValue());
-</span><span class='line'>}
-</span><span class='line'>&lt;/code>&lt;/pre>
-</span><span class='line'>
-</span><span class='line'>&lt;p>}</span></code></pre></td></tr></table></div></figure></notextile></div></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Java多线程]]></title>
-    <link href="http://z420.github.io/blog/2013/11/20/run-thread/"/>
-    <updated>2013-11-20T14:39:00+08:00</updated>
-    <id>http://z420.github.io/blog/2013/11/20/run-thread</id>
-    <content type="html"><![CDATA[<p>在Java中要想实现多线程代码有两种手段，一种是继承Thread类，另一种就是实现Runnable接口。
-Thread类是在java.lang包中定义的，一个类只要继承了Thread类，此类就称为多线程操作类。在Thread子类中，必须明确的覆写Thread类中的run()方法，此方法为线程的主体。线程类的定义如下。
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>class 类名称 extends Thread{&lt;/p>
-</span><span class='line'>
-</span><span class='line'>&lt;pre>&lt;code>属性...;
-</span><span class='line'>方法...;
-</span><span class='line'>public void run(){
-</span><span class='line'>    线程主体;
-</span><span class='line'>}
-</span><span class='line'>&lt;/code>&lt;/pre>
-</span><span class='line'>
-</span><span class='line'>&lt;p>}</span></code></pre></td></tr></table></div></figure></notextile></div>
-在java中也可以通过实现Runnable接口的方式实现多线程，Runnable接口中只定义了一个抽象方法
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>public void run();</span></code></pre></td></tr></table></div></figure></notextile></div>
-通过Runnable接口实现多线程：
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>class 类名称 implements Runnable{&lt;/p>
-</span><span class='line'>
-</span><span class='line'>&lt;pre>&lt;code>属性...;
-</span><span class='line'>方法...;
-</span><span class='line'>public void run(){
-</span><span class='line'>    线程主体;
-</span><span class='line'>}
-</span><span class='line'>&lt;/code>&lt;/pre>
-</span><span class='line'>
-</span><span class='line'>&lt;p>}</span></code></pre></td></tr></table></div></figure></notextile></div></p>
-
-<blockquote><p>实现Runnable接口相对于继承Thread类来说，有如下显著优势：<br/>
-1.适合多个相同程序代码的线程去处理同一资源的情况。<br/>
-2.可以避免由于java的单继承特性带来的局限。<br/>
-3.增强了程序的健壮性，代码能够被多个线程共享，代码与数据是独立的。</p></blockquote>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[异常处理]]></title>
-    <link href="http://z420.github.io/blog/2013/11/18/exception/"/>
-    <updated>2013-11-18T14:44:00+08:00</updated>
-    <id>http://z420.github.io/blog/2013/11/18/exception</id>
-    <content type="html"><![CDATA[<p>异常处理格式
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>try{&lt;/p>
-</span><span class='line'>
-</span><span class='line'>&lt;pre>&lt;code>//有可能出现异常的语句
-</span><span class='line'>&lt;/code>&lt;/pre>
-</span><span class='line'>
-</span><span class='line'>&lt;p>}catch(异常类 异常对象){&lt;/p>
-</span><span class='line'>
-</span><span class='line'>&lt;pre>&lt;code>//编写异常的处理语句
-</span><span class='line'>&lt;/code>&lt;/pre>
-</span><span class='line'>
-</span><span class='line'>&lt;p>}[catch(异常类 异常对象){&lt;/p>
-</span><span class='line'>
-</span><span class='line'>&lt;pre>&lt;code>//编写异常的处理语句
-</span><span class='line'>&lt;/code>&lt;/pre>
-</span><span class='line'>
-</span><span class='line'>&lt;p>} &hellip; ]
-</span><span class='line'>[finally{&lt;/p>
-</span><span class='line'>
-</span><span class='line'>&lt;pre>&lt;code>一定会运行到的程序代码;
-</span><span class='line'>&lt;/code>&lt;/pre>
-</span><span class='line'>
-</span><span class='line'>&lt;p>}]&lt;/p>
-</span><span class='line'>
-</span><span class='line'>&lt;h2></span></code></pre></td></tr></table></div></figure></notextile></div></h2>
-
-<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>class Math{&lt;/p>
-</span><span class='line'>
-</span><span class='line'>&lt;pre>&lt;code>public int div(int i, int j) throws Exception{
-</span><span class='line'>    int temp = i / j;
-</span><span class='line'>    return temp;
-</span><span class='line'>}
-</span><span class='line'>&lt;/code>&lt;/pre>
-</span><span class='line'>
-</span><span class='line'>&lt;p>}
-</span><span class='line'>public class ThrowsDemo02{&lt;/p>
-</span><span class='line'>
-</span><span class='line'>&lt;pre>&lt;code>public static void main(String[] args) throws Exception{
-</span><span class='line'>    Math m = new Math();
-</span><span class='line'>    System.out.println("除法操作：" + m.div(10, 2));
-</span><span class='line'>}
-</span><span class='line'>&lt;/code>&lt;/pre>
-</span><span class='line'>
-</span><span class='line'>&lt;p>}&lt;/p>
-</span><span class='line'>
-</span><span class='line'>&lt;h2></span></code></pre></td></tr></table></div></figure></notextile></div></h2>
-
-<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>public class ThrowDemo01{&lt;/p>
-</span><span class='line'>
-</span><span class='line'>&lt;pre>&lt;code>public static void main(String[] args){
-</span><span class='line'>    try{
-</span><span class='line'>        throw new Exception("自己抛出的异常！");  //抛出异常的实例化对象
-</span><span class='line'>    }catch(Exception e){                         //捕捉异常
-</span><span class='line'>        System.out.println(e);
-</span><span class='line'>    }
-</span><span class='line'>}
-</span><span class='line'>&lt;/code>&lt;/pre>
-</span><span class='line'>
-</span><span class='line'>&lt;p>}
-</span><span class='line'>//java.lang.Exception: 自己抛出的异常！</span></code></pre></td></tr></table></div></figure></notextile></div></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[设计模式-代理设计]]></title>
-    <link href="http://z420.github.io/blog/2013/11/16/proxy/"/>
-    <updated>2013-11-16T18:00:00+08:00</updated>
-    <id>http://z420.github.io/blog/2013/11/16/proxy</id>
-    <content type="html"><![CDATA[<p>代理设计：所谓的代理设计就是指由一个代理主题来操作真实主题，真实主题执行具体的业务操作，而代理主题负责其他相关业务的处理。
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>interface Network{&lt;/p>
-</span><span class='line'>
-</span><span class='line'>&lt;pre>&lt;code>public void browse();
-</span><span class='line'>&lt;/code>&lt;/pre>
-</span><span class='line'>
-</span><span class='line'>&lt;p>}
-</span><span class='line'>class Real implements Network{&lt;/p>
-</span><span class='line'>
-</span><span class='line'>&lt;pre>&lt;code>public void browse(){
-</span><span class='line'>    System.out.println("上网");
-</span><span class='line'>}
-</span><span class='line'>&lt;/code>&lt;/pre>
-</span><span class='line'>
-</span><span class='line'>&lt;p>}
-</span><span class='line'>class Proxy implements Network{&lt;/p>
-</span><span class='line'>
-</span><span class='line'>&lt;pre>&lt;code>private Network network;
-</span><span class='line'>public Proxy(Network network){
-</span><span class='line'>    this.network = network;
-</span><span class='line'>}
-</span><span class='line'>public void check(){
-</span><span class='line'>    System.out.println("检查用户是否合法");
-</span><span class='line'>}
-</span><span class='line'>public void browse(){
-</span><span class='line'>    this.check();
-</span><span class='line'>    this.network.browse();
-</span><span class='line'>}
-</span><span class='line'>&lt;/code>&lt;/pre>
-</span><span class='line'>
-</span><span class='line'>&lt;p>}
-</span><span class='line'>public class ProxyDemo {&lt;/p>
-</span><span class='line'>
-</span><span class='line'>&lt;pre>&lt;code>public static void main(String[] args){
-</span><span class='line'>    Network net = null;
-</span><span class='line'>    net = new Proxy(new Real());
-</span><span class='line'>    net.browse();
 </span><span class='line'>}
 </span><span class='line'>&lt;/code>&lt;/pre>
 </span><span class='line'>

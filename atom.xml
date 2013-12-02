@@ -4,7 +4,7 @@
   <title><![CDATA[Mz's Blog]]></title>
   <link href="http://z420.github.io/atom.xml" rel="self"/>
   <link href="http://z420.github.io/"/>
-  <updated>2013-11-26T19:14:59+08:00</updated>
+  <updated>2013-12-02T10:27:05+08:00</updated>
   <id>http://z420.github.io/</id>
   <author>
     <name><![CDATA[Mz]]></name>
@@ -12,6 +12,393 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[泛型方法]]></title>
+    <link href="http://z420.github.io/blog/2013/11/29/fanxing-fun/"/>
+    <updated>2013-11-29T15:47:00+08:00</updated>
+    <id>http://z420.github.io/blog/2013/11/29/fanxing-fun</id>
+    <content type="html"><![CDATA[<p>可以在类中定义泛型化的方法，也可以在类中定义泛型化的方法。泛型方法的定义与其所在的类是否是泛型类是没有任何关系的，所在的类可以是泛型类，也可以不是泛型类。<br/>
+在泛型方法中可以定义泛型参数，此时，参数的类型就是传入数据的类型，可以使用如下的格式定义泛型方法。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>[访问权限]&lt;泛型标识> 泛型标识 方法名称([泛型标识 参数名称])</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"></pre></td><td class='code'><pre><code class=''></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"></pre></td><td class='code'><pre><code class=''></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[泛型接口]]></title>
+    <link href="http://z420.github.io/blog/2013/11/29/fanxing-interface/"/>
+    <updated>2013-11-29T11:08:00+08:00</updated>
+    <id>http://z420.github.io/blog/2013/11/29/fanxing-interface</id>
+    <content type="html"><![CDATA[<p><strong>泛型接口</strong></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>[访问权限] interface 接口名称&lt;泛型标识>｛
+</span><span class='line'>｝</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>泛型接口的两种实现方式</strong><br/>
+1.直接在子类后声明泛型-在子类的定义上声明泛型类型。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>interface Info&lt;T>{
+</span><span class='line'>  public T getVar();
+</span><span class='line'>}
+</span><span class='line'>class InfoImpl&lt;T> implements Info&lt;T>{
+</span><span class='line'>  private T var;
+</span><span class='line'>  public InfoImpl(T var){
+</span><span class='line'>      this.setVar(var);
+</span><span class='line'>  }
+</span><span class='line'>  public void setVar(T var){
+</span><span class='line'>      this.var = var;
+</span><span class='line'>  }
+</span><span class='line'>  public T getVar(){
+</span><span class='line'>      return this.var;
+</span><span class='line'>  }
+</span><span class='line'>} 
+</span><span class='line'>public class GenericsDemo11 {
+</span><span class='line'>  public static void main(String[] args){
+</span><span class='line'>      Info&lt;String> i = null;  //定义接口对象
+</span><span class='line'>      i = new InfoImpl&lt;String>("李");  //通过子类实例化此对象
+</span><span class='line'>      System.out.println("姓名：" + i.getVar());
+</span><span class='line'>  }
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>2.直接在子类实现的接口中明确的给出泛型类型-直接在接口中指定具体类型。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>interface Info&lt;T>{
+</span><span class='line'>  public T getVar();
+</span><span class='line'>}
+</span><span class='line'>class InfoImpl implements Info&lt;String>{  //定义泛型接口的子类，指定类型为String
+</span><span class='line'>  private String var;
+</span><span class='line'>  public InfoImpl(String var){
+</span><span class='line'>      this.setVar(var);
+</span><span class='line'>  }
+</span><span class='line'>  public void setVar(String var){
+</span><span class='line'>      this.var = var;
+</span><span class='line'>  }
+</span><span class='line'>  public String getVar(){
+</span><span class='line'>      return this.var;
+</span><span class='line'>  }
+</span><span class='line'>} 
+</span><span class='line'>public class GenericsDemo11 {
+</span><span class='line'>  public static void main(String[] args){
+</span><span class='line'>      Info&lt;String> i = null;  //定义接口对象,指定泛型
+</span><span class='line'>      i = new InfoImpl("李");  //通过子类实例化此对象，不用指定泛型
+</span><span class='line'>      System.out.println("姓名：" + i.getVar());
+</span><span class='line'>  }
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[受限泛型]]></title>
+    <link href="http://z420.github.io/blog/2013/11/29/shouxianfanxing/"/>
+    <updated>2013-11-29T09:22:00+08:00</updated>
+    <id>http://z420.github.io/blog/2013/11/29/shouxianfanxing</id>
+    <content type="html"><![CDATA[<p>在引用传递中，在泛型操作中也可以设置一个泛型对象的范围上限和范围下限。范围上限使用extends关键字声明，表示参数化的类型可能是所指定的类型或者是此类型的子类，而范围下限使用super进行声明，表示参数化的类型可能是所指定的类型，或者是此类型的父类型，或是Object类，具体格式如下。<br/>
+<strong>设置上限</strong></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>声明对象：类名称&lt;? extends 类> 对象名称
+</span><span class='line'>定义类：[访问权限] 类名称&lt;泛型标识 extends 类>{}</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>class Info&lt;T>{
+</span><span class='line'>  private T var;
+</span><span class='line'>  public T getVar(){
+</span><span class='line'>      return var;
+</span><span class='line'>  }
+</span><span class='line'>  public void setVar(T var){
+</span><span class='line'>      this.var = var;
+</span><span class='line'>  }
+</span><span class='line'>  public String toString(){
+</span><span class='line'>      return this.var.toString();
+</span><span class='line'>  }
+</span><span class='line'>}
+</span><span class='line'>public class GenericsDemo10 {
+</span><span class='line'>  public static void main(String[] args){
+</span><span class='line'>      Info&lt;Integer> i1 = new Info&lt;Integer>();
+</span><span class='line'>      Info&lt;Float> i2 = new Info&lt;Float>();
+</span><span class='line'>      i1.setVar(30);
+</span><span class='line'>      i2.setVar(30.1f);
+</span><span class='line'>      fun(i1);
+</span><span class='line'>      fun(i2);
+</span><span class='line'>  }
+</span><span class='line'>  public static void fun(Info&lt;? extends Number> temp){
+</span><span class='line'>      System.out.print(temp + " ");
+</span><span class='line'>  }
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>在类定义时指定泛型的上限</strong></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>class Info&lt;T extends Number>{
+</span><span class='line'>  private T var;
+</span><span class='line'>  public T getVar(){
+</span><span class='line'>      return var;
+</span><span class='line'>  }
+</span><span class='line'>  public void setVar(T var){
+</span><span class='line'>      this.var = var;
+</span><span class='line'>  }
+</span><span class='line'>  public String toString(){
+</span><span class='line'>      return this.var.toString();
+</span><span class='line'>  }
+</span><span class='line'>}
+</span><span class='line'>public class GenericsDemo10 {
+</span><span class='line'>  public static void main(String[] args){
+</span><span class='line'>      Info&lt;Integer> i1 = new Info&lt;Integer>();
+</span><span class='line'>      Info&lt;Float> i2 = new Info&lt;Float>();
+</span><span class='line'>      i1.setVar(30);
+</span><span class='line'>      i2.setVar(30.1f);
+</span><span class='line'>      System.out.println(i1.getVar() + " " + i2.getVar());
+</span><span class='line'>  }
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>设置下限</strong></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>声明对象：类名称&lt;? super 类> 对象名称
+</span><span class='line'>定义类：[访问权限] 类名称&lt;泛型标识 extends 类>{}</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>class Info&lt;T>{
+</span><span class='line'>  private T var;
+</span><span class='line'>  public T getVar(){
+</span><span class='line'>      return var;
+</span><span class='line'>  }
+</span><span class='line'>  public void setVar(T var){
+</span><span class='line'>      this.var = var;
+</span><span class='line'>  }
+</span><span class='line'>  public String toString(){
+</span><span class='line'>      return this.var.toString();
+</span><span class='line'>  }
+</span><span class='line'>}
+</span><span class='line'>public class GenericsDemo10 {
+</span><span class='line'>  public static void main(String[] args){
+</span><span class='line'>      Info&lt;Object> i1 = new Info&lt;Object>();
+</span><span class='line'>      Info&lt;String> i2 = new Info&lt;String>();
+</span><span class='line'>      i1.setVar(new Object());
+</span><span class='line'>      i2.setVar("王");
+</span><span class='line'>      fun(i1);
+</span><span class='line'>      fun(i2);
+</span><span class='line'>  }
+</span><span class='line'>  public static void fun(Info&lt;? super String> temp){
+</span><span class='line'>      System.out.println("内容：" + temp);
+</span><span class='line'>  }
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>&lt;一个类的子类可以通过对象多态性为其父类实例化，但是在泛型操作中，子类的泛型类型是无法使用父类的泛型类型接收的，例如，info<String>不能使用info<Object>接收。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>public class Demo{
+</span><span class='line'>  public static void main(String[] args){
+</span><span class='line'>      Info&lt;String> i1 = new Info&lt;String>();
+</span><span class='line'>      Info&lt;String> i2 = null;
+</span><span class='line'>      i2 = i1; //此处子类泛型不能向上转型为父类泛型，报错。
+</span><span class='line'>  }
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[泛型操作-通配符]]></title>
+    <link href="http://z420.github.io/blog/2013/11/26/tongpeifu/"/>
+    <updated>2013-11-26T19:55:00+08:00</updated>
+    <id>http://z420.github.io/blog/2013/11/26/tongpeifu</id>
+    <content type="html"><![CDATA[<p>1.Java中引入了通配符“？”，表示可以接收此类型的任意泛型对象。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>class Info&lt;T>{
+</span><span class='line'>  private T var;
+</span><span class='line'>  public T getVar(){
+</span><span class='line'>      return var;
+</span><span class='line'>  }
+</span><span class='line'>  public void setVar(T var){
+</span><span class='line'>      this.var = var;
+</span><span class='line'>  }
+</span><span class='line'>  public String toString(){
+</span><span class='line'>      return this.var.toString();
+</span><span class='line'>  }
+</span><span class='line'>}
+</span><span class='line'>public class GenericsDemo10 {
+</span><span class='line'>  public static void main(String[] args){
+</span><span class='line'>      Info&lt;Object> i = new Info&lt;Object>();       //警告，没有指定泛型类型。
+</span><span class='line'>      i.setVar("王");
+</span><span class='line'>      fun(i);
+</span><span class='line'>  }
+</span><span class='line'>  public static void fun(Info&lt;?> temp){
+</span><span class='line'>      System.out.println("姓名：" + temp);
+</span><span class='line'>  }
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[泛型的安全警告]]></title>
@@ -1305,29 +1692,6 @@ Thread类是在java.lang包中定义的，一个类只要继承了Thread类，�
     <updated>2013-11-14T21:27:00+08:00</updated>
     <id>http://z420.github.io/blog/2013/11/14/this-super</id>
     <content type="html"><![CDATA[<p><img src="http://pic2.qnpic.com/doimg/z420/1c7fb5e7/"></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[不要去打扰别人的幸福]]></title>
-    <link href="http://z420.github.io/blog/2013/11/08/first/"/>
-    <updated>2013-11-08T16:04:00+08:00</updated>
-    <id>http://z420.github.io/blog/2013/11/08/first</id>
-    <content type="html"><![CDATA[<p>上学时，一个女同学趁小长假到外地与男朋友小聚。听说她是坐了二十几个小时的硬座去的，同学忍不住说了句：我要是她男朋友一定给她买卧铺！
-没想到此话传到该同学耳朵里，让她很难受。虽然幸福要靠每个人自己心理调节，但是自己也要学会不去惊扰别人的幸福。</p>
-
-<!--more-->
-
-
-<p>路边有一地摊，摆地摊的是一个中年女人。一个中年男人骑着自行车过来送饭。他一下车，就谦意地笑道，对不起，来迟了，饿了吧？
-女人抬起头，看到男人，眼睛里闪过一丝亮色，笑道，不急，还早呢。男人憨憨地笑笑，从自行车车篓里拿出饭盒，坐在女人身边，说道，快吃吧，不要凉了，我陪你一起吃。
-这时，地摊前走来了一个中年大嫂，她将头伸向女人的盒饭里，发出惊讶地叫声，哎呀，我的大妹子啊，你可真苦啊，你吃的这是什么菜啊，一点油水也没有，这怎么能吃的下去啊。说罢，嘴里还不住地发出啧啧叹气声，脸上露出讥讽的神色，扭着肥胖的身子走开了。
-女人端着手中的盒饭，愣愣地望着胖女人的背影，眼睛里噙满了泪花，那眼泪叭嗒叭嗒地滴落到手中的盒饭里。身旁的男人眼圈也红红的，捧在手里的盒饭，再也没有情趣吃上一口了。周遭的气氛仿佛顿时凝固了似的，让人透不过气来。</p>
-
-<p>儿于考上了大学，虽然是一个普通的大学，但是全家人依然感到很快乐很幸福，一点没有感觉到有什么遗憾的。父亲对儿子说，儿子，你比你爸和老妈都有出息了。我只上了小学三年级，你妈才小学毕业，你在我们家可就是状元了。儿子羞涩地笑了。笑的很甜、很舒心。
-全家人带着一种幸福和喜悦的心情，送儿子到车站上学去了。突然，有人拍了他一下肩膀。他一看，原来是自己的一个熟人，也来送儿子去上学。熟人问，你儿子考上什么大学？　他刚说出校名，熟人脸上立刻露出惊讶的神色，说道，你儿子考的这是什么个大学？那个大学上了也白上，那个大学毕业的学生根本找不到工作。我儿子可比你儿子强多了，他考的可是名牌的大学，毕业了，人家单位都抢着要，月薪最少八千块啦。熟人的脸上露出轻蔑的神色，说罢转身走了。
-他们望着熟人一家远去的背影，目光一下子黯淡了下来。刚才一家人的幸福和甜蜜，被熟人叽里呱啦一阵连珠炮似的自问自答，荡然无存，心，从火热降到冰点。再看帅气的儿子，眼睛里也噙满了晶莹的泪花。
-不要打扰他人的幸福，幸福也是一个人的隐私。在你眼中看的是一种苦难，在别人的心里也许正是一种幸福。这种幸福，无关荣华富贵、无关名誉地位，有关的，只是一种心灵感应和默契。这种幸福，像花儿开放一样，悄无声息，但却将馨香，在彼此心田里缠绵、涟漪，化作了生命中的一种永恒和地久天长。</p>
 ]]></content>
   </entry>
   
