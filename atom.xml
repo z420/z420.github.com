@@ -4,7 +4,7 @@
   <title><![CDATA[Mz's Blog]]></title>
   <link href="http://z420.github.io/atom.xml" rel="self"/>
   <link href="http://z420.github.io/"/>
-  <updated>2013-12-02T10:34:54+08:00</updated>
+  <updated>2013-12-06T10:12:00+08:00</updated>
   <id>http://z420.github.io/</id>
   <author>
     <name><![CDATA[Mz]]></name>
@@ -27,12 +27,84 @@
 
 
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"></pre></td><td class='code'><pre><code class=''></code></pre></td></tr></table></div></figure>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>class Demo{
+</span><span class='line'>  public &lt;T> T fun(T t){
+</span><span class='line'>      return t;
+</span><span class='line'>  }
+</span><span class='line'>}
+</span><span class='line'>public class GenericsDemo {
+</span><span class='line'>  public static void main(String[] args){
+</span><span class='line'>      Demo d = new Demo();
+</span><span class='line'>      String str = d.fun("王");
+</span><span class='line'>      int i = d.fun(30);
+</span><span class='line'>      System.out.println(str);
+</span><span class='line'>      System.out.println(i);
+</span><span class='line'>  }
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
 
 
+<p>如果可以通过泛型方法返回一个泛型类的实例化对象，则必须在方法的返回类型声明处明确的指定泛型标识</p>
 
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"></pre></td><td class='code'><pre><code class=''></code></pre></td></tr></table></div></figure>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>class Info&lt;T extends Number>{
+</span><span class='line'>  private T var;
+</span><span class='line'>  public T getVar(){
+</span><span class='line'>      return var;
+</span><span class='line'>  }
+</span><span class='line'>  public void setVar(T var){
+</span><span class='line'>      this.var = var;
+</span><span class='line'>  }
+</span><span class='line'>  public String toString(){
+</span><span class='line'>      return this.var.toString();
+</span><span class='line'>  }
+</span><span class='line'>}
+</span><span class='line'>public class GenericsDemo13 {
+</span><span class='line'>  public static void main(String[] args){
+</span><span class='line'>      Info&lt;Integer> i = fun(30);
+</span><span class='line'>      System.out.println(i.getVar());
+</span><span class='line'>  }
+</span><span class='line'>  public static  &lt;T extends Number>  Info&lt;T> fun(T param){
+</span><span class='line'>      Info&lt;T> temp = new Info&lt;T>();
+</span><span class='line'>      temp.setVar(param);
+</span><span class='line'>      return temp;
+</span><span class='line'>  }
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
 
 ]]></content>
   </entry>
