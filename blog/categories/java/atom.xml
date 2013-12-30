@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Java | Mz's Blog]]></title>
   <link href="http://z420.github.io/blog/categories/java/atom.xml" rel="self"/>
   <link href="http://z420.github.io/"/>
-  <updated>2013-12-30T15:01:49+08:00</updated>
+  <updated>2013-12-30T15:03:30+08:00</updated>
   <id>http://z420.github.io/</id>
   <author>
     <name><![CDATA[Mz]]></name>
@@ -27,7 +27,7 @@
 </span><span class='line'>public void deleteObserver(Observer o) 删除一个观察者&lt;br/>
 </span><span class='line'>protected void setChanged() 被观察者状态发生改变&lt;br/>
 </span><span class='line'>public void notifyObservers(Object arg) 通知所有观察者状态改变&lt;br/></span></code></pre></td></tr></table></div></figure></notextile></div>
-然后每一个观察者类都需要实现Observer接口，Observer接口定义如下：<br/>
+然后<strong>每一个观察者类都需要实现Observer接口</strong>，Observer接口定义如下：<br/>
 <div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
