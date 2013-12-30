@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Java | Mz's Blog]]></title>
   <link href="http://z420.github.io/blog/categories/java/atom.xml" rel="self"/>
   <link href="http://z420.github.io/"/>
-  <updated>2013-12-06T10:12:00+08:00</updated>
+  <updated>2013-12-30T15:01:49+08:00</updated>
   <id>http://z420.github.io/</id>
   <author>
     <name><![CDATA[Mz]]></name>
@@ -12,6 +12,36 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[观察者设计模式]]></title>
+    <link href="http://z420.github.io/blog/2013/12/30/observer/"/>
+    <updated>2013-12-30T14:51:00+08:00</updated>
+    <id>http://z420.github.io/blog/2013/12/30/observer</id>
+    <content type="html"><![CDATA[<p>在java.util包中提供了Observable类和Observer接口，使用它们即可完成观察者模式。需要<strong>被观察的类必须继承Observable类</strong>，Observable类的常用方法如下<br/>
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>public void addObserver(Observer o) 添加一个观察者&lt;br/>
+</span><span class='line'>public void deleteObserver(Observer o) 删除一个观察者&lt;br/>
+</span><span class='line'>protected void setChanged() 被观察者状态发生改变&lt;br/>
+</span><span class='line'>public void notifyObservers(Object arg) 通知所有观察者状态改变&lt;br/></span></code></pre></td></tr></table></div></figure></notextile></div>
+然后每一个观察者类都需要实现Observer接口，Observer接口定义如下：<br/>
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>public interface Observer{&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;pre>&lt;code>void update(Observable o,Object arg);
+</span><span class='line'>&lt;/code>&lt;/pre>
+</span><span class='line'>
+</span><span class='line'>&lt;p>}</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[泛型方法]]></title>
@@ -549,88 +579,6 @@
 </span><span class='line'>&lt;p>}&lt;/p>
 </span><span class='line'>
 </span><span class='line'>&lt;p></span></code></pre></td></tr></table></div></figure></notextile></div></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[泛型的安全警告]]></title>
-    <link href="http://z420.github.io/blog/2013/11/26/generics-warnning/"/>
-    <updated>2013-11-26T11:07:00+08:00</updated>
-    <id>http://z420.github.io/blog/2013/11/26/generics-warnning</id>
-    <content type="html"><![CDATA[<p>在泛型应用中最好在声明类对象时指定好其内部的数据类型，如info<String>，如果不指定类型，这样用户在使用这样的类时，就会出现不安全的警告信息。</p>
-
-<p><strong>不指定泛型类型，出现警告信息</strong><br/>
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>class Info&lt;T>{&lt;/p>
-</span><span class='line'>
-</span><span class='line'>&lt;pre>&lt;code>private T var;
-</span><span class='line'>public T getVar(){
-</span><span class='line'>    return var;
-</span><span class='line'>}
-</span><span class='line'>public void setVar(T var){
-</span><span class='line'>    this.var = var;
-</span><span class='line'>}
-</span><span class='line'>public String toString(){
-</span><span class='line'>    return this.var.toString();
-</span><span class='line'>}
-</span><span class='line'>&lt;/code>&lt;/pre>
-</span><span class='line'>
-</span><span class='line'>&lt;p>}
-</span><span class='line'>public class GenericsDemo10 {&lt;/p>
-</span><span class='line'>
-</span><span class='line'>&lt;pre>&lt;code>public static void main(String[] args){
-</span><span class='line'>    Info i = new Info();       //警告，没有指定泛型类型。
-</span><span class='line'>    i.setVar("王");
-</span><span class='line'>    System.out.println("姓名：" + i.getVar());
-</span><span class='line'>}
-</span><span class='line'>&lt;/code>&lt;/pre>
-</span><span class='line'>
-</span><span class='line'>&lt;p>}</span></code></pre></td></tr></table></div></figure></notextile></div>
-以上程序虽然在编译时出现了警告，但是并不影响程序的运行，这是因为在泛型的操作中为了方便用户的使用，就算没有指定泛型程序也可以正常使用，而所有的类型统一使用Object进行接收，所以以上程序的var属性实际上是Object类型的，也就是在定义时将泛型擦除了，以上程序类似以下的定义。
-<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>public class GenericsDemo10 {&lt;/p>
-</span><span class='line'>
-</span><span class='line'>&lt;pre>&lt;code>public static void main(String[] args){
-</span><span class='line'>    Info&lt;Object&gt; i = new Info&lt;Object&gt;();  //指定Object为泛型类型。
-</span><span class='line'>    i.setVar("王");
-</span><span class='line'>    System.out.println("姓名：" + i.getVar());
-</span><span class='line'>}
-</span><span class='line'>&lt;/code>&lt;/pre>
-</span><span class='line'>
-</span><span class='line'>&lt;p>}</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 ]]></content>
   </entry>
   

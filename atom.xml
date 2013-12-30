@@ -4,7 +4,7 @@
   <title><![CDATA[Mz's Blog]]></title>
   <link href="http://z420.github.io/atom.xml" rel="self"/>
   <link href="http://z420.github.io/"/>
-  <updated>2013-12-06T10:12:00+08:00</updated>
+  <updated>2013-12-30T15:01:49+08:00</updated>
   <id>http://z420.github.io/</id>
   <author>
     <name><![CDATA[Mz]]></name>
@@ -12,6 +12,35 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[观察者设计模式]]></title>
+    <link href="http://z420.github.io/blog/2013/12/30/observer/"/>
+    <updated>2013-12-30T14:51:00+08:00</updated>
+    <id>http://z420.github.io/blog/2013/12/30/observer</id>
+    <content type="html"><![CDATA[<p>在java.util包中提供了Observable类和Observer接口，使用它们即可完成观察者模式。需要<strong>被观察的类必须继承Observable类</strong>，Observable类的常用方法如下</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>public void addObserver(Observer o) 添加一个观察者  
+</span><span class='line'>public void deleteObserver(Observer o) 删除一个观察者  
+</span><span class='line'>protected void setChanged() 被观察者状态发生改变  
+</span><span class='line'>public void notifyObservers(Object arg) 通知所有观察者状态改变</span></code></pre></td></tr></table></div></figure>
+
+
+<p>然后每一个观察者类都需要实现Observer接口，Observer接口定义如下：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>public interface Observer{
+</span><span class='line'>  void update(Observable o,Object arg);
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[泛型方法]]></title>
@@ -1755,15 +1784,6 @@ Thread类是在java.lang包中定义的，一个类只要继承了Thread类，�
     <updated>2013-11-14T22:09:00+08:00</updated>
     <id>http://z420.github.io/blog/2013/11/14/chongzaiyufuxie</id>
     <content type="html"><![CDATA[<p><img src="http://pic2.qnpic.com/doimg/z420/30c8b2ad/"></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[this和super的区别]]></title>
-    <link href="http://z420.github.io/blog/2013/11/14/this-super/"/>
-    <updated>2013-11-14T21:27:00+08:00</updated>
-    <id>http://z420.github.io/blog/2013/11/14/this-super</id>
-    <content type="html"><![CDATA[<p><img src="http://pic2.qnpic.com/doimg/z420/1c7fb5e7/"></p>
 ]]></content>
   </entry>
   

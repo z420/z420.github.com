@@ -70,6 +70,65 @@
       
   <header>
     
+      <h1 class="entry-title"><a href="/blog/2013/12/30/observer/">观察者设计模式</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-12-30T14:51:00+08:00" pubdate data-updated="true">Dec 30<span>th</span>, 2013</time>
+        
+           | <a href="/blog/2013/12/30/observer/#disqus_thread"
+             data-disqus-identifier="http://z420.github.io/blog/2013/12/30/observer/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>在java.util包中提供了Observable类和Observer接口，使用它们即可完成观察者模式。需要<strong>被观察的类必须继承Observable类</strong>，Observable类的常用方法如下</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>public void addObserver(Observer o) 添加一个观察者  
+</span><span class='line'>public void deleteObserver(Observer o) 删除一个观察者  
+</span><span class='line'>protected void setChanged() 被观察者状态发生改变  
+</span><span class='line'>public void notifyObservers(Object arg) 通知所有观察者状态改变</span></code></pre></td></tr></table></div></figure>
+
+
+<p>然后每一个观察者类都需要实现Observer接口，Observer接口定义如下：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>public interface Observer{
+</span><span class='line'>  void update(Observable o,Object arg);
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2013/11/29/fanxing-fun/">泛型方法</a></h1>
     
     
@@ -1627,103 +1686,6 @@ Thread类是在java.lang包中定义的，一个类只要继承了Thread类，�
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/11/16/proxy/">设计模式-代理设计</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-11-16T18:00:00+08:00" pubdate data-updated="true">Nov 16<span>th</span>, 2013</time>
-        
-           | <a href="/blog/2013/11/16/proxy/#disqus_thread"
-             data-disqus-identifier="http://z420.github.io/blog/2013/11/16/proxy/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>代理设计：所谓的代理设计就是指由一个代理主题来操作真实主题，真实主题执行具体的业务操作，而代理主题负责其他相关业务的处理。</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>interface Network{
-</span><span class='line'>  public void browse();
-</span><span class='line'>}
-</span><span class='line'>class Real implements Network{
-</span><span class='line'>  public void browse(){
-</span><span class='line'>      System.out.println("上网");
-</span><span class='line'>  }
-</span><span class='line'>}
-</span><span class='line'>class Proxy implements Network{
-</span><span class='line'>  private Network network;
-</span><span class='line'>  public Proxy(Network network){
-</span><span class='line'>      this.network = network;
-</span><span class='line'>  }
-</span><span class='line'>  public void check(){
-</span><span class='line'>      System.out.println("检查用户是否合法");
-</span><span class='line'>  }
-</span><span class='line'>  public void browse(){
-</span><span class='line'>      this.check();
-</span><span class='line'>      this.network.browse();
-</span><span class='line'>  }
-</span><span class='line'>}
-</span><span class='line'>public class ProxyDemo {
-</span><span class='line'>  public static void main(String[] args){
-</span><span class='line'>      Network net = null;
-</span><span class='line'>      net = new Proxy(new Real());
-</span><span class='line'>      net.browse();
-</span><span class='line'>  }
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -1737,6 +1699,10 @@ Thread类是在java.lang包中定义的，一个类只要继承了Thread类，�
     <section>
   <h1>最近发表</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/12/30/observer/">观察者设计模式</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2013/11/29/fanxing-fun/">泛型方法</a>
@@ -1754,10 +1720,6 @@ Thread类是在java.lang包中定义的，一个类只要继承了Thread类，�
         <a href="/blog/2013/11/26/tongpeifu/">泛型操作-通配符</a>
       </li>
     
-      <li class="post">
-        <a href="/blog/2013/11/26/generics-warnning/">泛型的安全警告</a>
-      </li>
-    
   </ul>
 </section>
 
@@ -1767,7 +1729,7 @@ Thread类是在java.lang包中定义的，一个类只要继承了Thread类，�
 <section> 
   <h1>文章分类</h1> 
 	<ul id="categories">
-    <li class='category'><a href='/blog/categories/java/'>Java (18)</a></li>
+    <li class='category'><a href='/blog/categories/java/'>Java (19)</a></li>
 <li class='category'><a href='/blog/categories/others/'>Others (2)</a></li>
 
 	</ul>
