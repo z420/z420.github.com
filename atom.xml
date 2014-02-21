@@ -4,7 +4,7 @@
   <title><![CDATA[Mz's Blog]]></title>
   <link href="http://z420.github.io/atom.xml" rel="self"/>
   <link href="http://z420.github.io/"/>
-  <updated>2014-02-21T10:45:50+08:00</updated>
+  <updated>2014-02-21T10:47:42+08:00</updated>
   <id>http://z420.github.io/</id>
   <author>
     <name><![CDATA[Mz]]></name>
@@ -18,40 +18,59 @@
     <link href="http://z420.github.io/blog/2014/02/21/file-separator/"/>
     <updated>2014-02-21T10:37:00+08:00</updated>
     <id>http://z420.github.io/blog/2014/02/21/file-separator</id>
-    <content type="html"><![CDATA[<p>[%codeblock%]
-import java.io.*;
-public class FileDemo01{</p>
+    <content type="html"><![CDATA[
 
-<pre><code>public static void main(String[] args){
-    String path = "d:" + File.separator + "test1.txt";
-    File f = new File(path);
-    try{
-        f.createNewFile();
-    }catch(IOException e){
-        e.printStackTrace();
-    }
-}
-</code></pre>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>import java.io.*;
+</span><span class='line'>public class FileDemo01{
+</span><span class='line'>  public static void main(String[] args){
+</span><span class='line'>      String path = "d:" + File.separator + "test1.txt";
+</span><span class='line'>      File f = new File(path);
+</span><span class='line'>      try{
+</span><span class='line'>          f.createNewFile();
+</span><span class='line'>      }catch(IOException e){
+</span><span class='line'>          e.printStackTrace();
+</span><span class='line'>      }
+</span><span class='line'>  }
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
 
-<p>}
-[%endcodeblock%]
-<strong>尽量不要使用下面的</strong>
-[%codeblock%]
-import java.io.*;
-public class FileDemo01 {</p>
 
-<pre><code>public static void main(String[] args){
-    File f = new File("d:\\test.txt");
-    try{
-        f.createNewFile();
-    }catch(IOException e){
-        e.printStackTrace();
-    }
-}
-</code></pre>
+<p><strong>尽量不要使用下面的</strong></p>
 
-<p>}
-[%endcodeblock%]</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>import java.io.*;
+</span><span class='line'>public class FileDemo01 {
+</span><span class='line'>  public static void main(String[] args){
+</span><span class='line'>      File f = new File("d:\\test.txt");
+</span><span class='line'>      try{
+</span><span class='line'>          f.createNewFile();
+</span><span class='line'>      }catch(IOException e){
+</span><span class='line'>          e.printStackTrace();
+</span><span class='line'>      }
+</span><span class='line'>  }
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
 ]]></content>
   </entry>
   
