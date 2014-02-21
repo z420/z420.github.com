@@ -4,7 +4,7 @@
   <title><![CDATA[Mz's Blog]]></title>
   <link href="http://z420.github.io/atom.xml" rel="self"/>
   <link href="http://z420.github.io/"/>
-  <updated>2013-12-30T15:33:21+08:00</updated>
+  <updated>2014-02-21T10:45:50+08:00</updated>
   <id>http://z420.github.io/</id>
   <author>
     <name><![CDATA[Mz]]></name>
@@ -12,6 +12,48 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[File.separator表示分隔符避免跨平台操作文件错误]]></title>
+    <link href="http://z420.github.io/blog/2014/02/21/file-separator/"/>
+    <updated>2014-02-21T10:37:00+08:00</updated>
+    <id>http://z420.github.io/blog/2014/02/21/file-separator</id>
+    <content type="html"><![CDATA[<p>[%codeblock%]
+import java.io.*;
+public class FileDemo01{</p>
+
+<pre><code>public static void main(String[] args){
+    String path = "d:" + File.separator + "test1.txt";
+    File f = new File(path);
+    try{
+        f.createNewFile();
+    }catch(IOException e){
+        e.printStackTrace();
+    }
+}
+</code></pre>
+
+<p>}
+[%endcodeblock%]
+<strong>尽量不要使用下面的</strong>
+[%codeblock%]
+import java.io.*;
+public class FileDemo01 {</p>
+
+<pre><code>public static void main(String[] args){
+    File f = new File("d:\\test.txt");
+    try{
+        f.createNewFile();
+    }catch(IOException e){
+        e.printStackTrace();
+    }
+}
+</code></pre>
+
+<p>}
+[%endcodeblock%]</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[观察者设计模式]]></title>
@@ -1869,15 +1911,6 @@ Thread类是在java.lang包中定义的，一个类只要继承了Thread类，�
     <content type="html"><![CDATA[<p>使用final声明的类不能有子类。 <br/>
 使用final声明的方法不能被子类所覆写。<br/>
 使用final声明的变量即成为常量，常量不可以修改。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[方法的重载与覆写的区别]]></title>
-    <link href="http://z420.github.io/blog/2013/11/14/chongzaiyufuxie/"/>
-    <updated>2013-11-14T22:09:00+08:00</updated>
-    <id>http://z420.github.io/blog/2013/11/14/chongzaiyufuxie</id>
-    <content type="html"><![CDATA[<p><img src="http://pic2.qnpic.com/doimg/z420/30c8b2ad/"></p>
 ]]></content>
   </entry>
   
