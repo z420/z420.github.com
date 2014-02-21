@@ -70,6 +70,65 @@
       
   <header>
     
+      <h1 class="entry-title"><a href="/blog/2014/02/21/delete-file/">文件删除操作</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-02-21T10:50:00+08:00" pubdate data-updated="true">Feb 21<span>st</span>, 2014</time>
+        
+           | <a href="/blog/2014/02/21/delete-file/#disqus_thread"
+             data-disqus-identifier="http://z420.github.io/blog/2014/02/21/delete-file/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>import java.io.*;
+</span><span class='line'>public class FileDemo02 {
+</span><span class='line'>  public static void main(String[] args){
+</span><span class='line'>      File f = new File("d:" + File.separator + "test.txt");
+</span><span class='line'>      if(f.exists()){  //判断文件是否存在
+</span><span class='line'>          f.delete();
+</span><span class='line'>      }
+</span><span class='line'>  }
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2014/02/21/file-separator/">File.separator表示分隔符避免跨平台操作文件错误</a></h1>
     
     
@@ -1256,119 +1315,6 @@ Thread类是在java.lang包中定义的，一个类只要继承了Thread类，�
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/11/18/exception/">异常处理</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-11-18T14:44:00+08:00" pubdate data-updated="true">Nov 18<span>th</span>, 2013</time>
-        
-           | <a href="/blog/2013/11/18/exception/#disqus_thread"
-             data-disqus-identifier="http://z420.github.io/blog/2013/11/18/exception/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>异常处理格式</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>try{
-</span><span class='line'>  //有可能出现异常的语句
-</span><span class='line'>}catch(异常类 异常对象){
-</span><span class='line'>  //编写异常的处理语句
-</span><span class='line'>}[catch(异常类 异常对象){
-</span><span class='line'>  //编写异常的处理语句
-</span><span class='line'>} ... ]
-</span><span class='line'>[finally{
-</span><span class='line'>  一定会运行到的程序代码;
-</span><span class='line'>}]</span></code></pre></td></tr></table></div></figure>
-
-
-<hr />
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>class Math{
-</span><span class='line'>  public int div(int i, int j) throws Exception{
-</span><span class='line'>      int temp = i / j;
-</span><span class='line'>      return temp;
-</span><span class='line'>  }
-</span><span class='line'>}
-</span><span class='line'>public class ThrowsDemo02{
-</span><span class='line'>  public static void main(String[] args) throws Exception{
-</span><span class='line'>      Math m = new Math();
-</span><span class='line'>      System.out.println("除法操作：" + m.div(10, 2));
-</span><span class='line'>  }
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
-
-
-<hr />
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>public class ThrowDemo01{
-</span><span class='line'>  public static void main(String[] args){
-</span><span class='line'>      try{
-</span><span class='line'>          throw new Exception("自己抛出的异常！");  //抛出异常的实例化对象
-</span><span class='line'>      }catch(Exception e){                         //捕捉异常
-</span><span class='line'>          System.out.println(e);
-</span><span class='line'>      }
-</span><span class='line'>  }
-</span><span class='line'>}
-</span><span class='line'>//java.lang.Exception: 自己抛出的异常！</span></code></pre></td></tr></table></div></figure>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -1384,6 +1330,10 @@ Thread类是在java.lang包中定义的，一个类只要继承了Thread类，�
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/02/21/delete-file/">文件删除操作</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/02/21/file-separator/">File.separator表示分隔符避免跨平台操作文件错误</a>
       </li>
     
@@ -1397,10 +1347,6 @@ Thread类是在java.lang包中定义的，一个类只要继承了Thread类，�
     
       <li class="post">
         <a href="/blog/2013/11/29/fanxing-interface/">泛型接口</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/11/29/shouxianfanxing/">受限泛型</a>
       </li>
     
   </ul>

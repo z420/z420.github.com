@@ -5,13 +5,21 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>使用final关键字的注意事项 - Mz's Blog</title>
+  <title>文件删除操作 - Mz's Blog</title>
   <meta name="author" content="Mz">
 
   
-  <meta name="description" content="使用final声明的类不能有子类。 使用final声明的方法不能被子类所覆写。
-使用final声明的变量即成为常量，常量不可以修改。
-">
+  <meta name="description" content="1
+2
+3
+4
+5
+6
+7
+8
+9
+import java.io.*;
+public class FileDemo02 { public static void main(String[] args){ File f = new File("d:" + File.separator + " &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -20,7 +28,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://z420.github.io/blog/2013/11/14/final-tips">
+  <link rel="canonical" href="http://z420.github.io/blog/2014/02/21/delete-file">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Mz's Blog" type="application/atom+xml">
@@ -69,7 +77,7 @@
   
   <header>
     
-      <h1 class="entry-title">使用final关键字的注意事项</h1>
+      <h1 class="entry-title">文件删除操作</h1>
     
     
       <p class="meta">
@@ -85,7 +93,7 @@
   
 
 
-<time datetime="2013-11-14T22:16:00+08:00" pubdate data-updated="true">Nov 14<span>th</span>, 2013</time>
+<time datetime="2014-02-21T10:50:00+08:00" pubdate data-updated="true">Feb 21<span>st</span>, 2014</time>
         
            | <a href="#disqus_thread"
              data-disqus-identifier="http://z420.github.io">Comments</a>
@@ -95,9 +103,27 @@
   </header>
 
 
-<div class="entry-content"><p>使用final声明的类不能有子类。 <br/>
-使用final声明的方法不能被子类所覆写。<br/>
-使用final声明的变量即成为常量，常量不可以修改。</p>
+<div class="entry-content">
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>import java.io.*;
+</span><span class='line'>public class FileDemo02 {
+</span><span class='line'>  public static void main(String[] args){
+</span><span class='line'>      File f = new File("d:" + File.separator + "test.txt");
+</span><span class='line'>      if(f.exists()){  //判断文件是否存在
+</span><span class='line'>          f.delete();
+</span><span class='line'>      }
+</span><span class='line'>  }
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
 </div>
 
 
@@ -120,14 +146,8 @@
   
 
 
-<time datetime="2013-11-14T22:16:00+08:00" pubdate data-updated="true">Nov 14<span>th</span>, 2013</time>
+<time datetime="2014-02-21T10:50:00+08:00" pubdate data-updated="true">Feb 21<span>st</span>, 2014</time>
       
-
-<span class="categories">
-  
-    <a class='category' href='/blog/categories/java/'>Java</a>
-  
-</span>
 
 
     </p>
@@ -141,10 +161,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2013/11/14/chongzaiyufuxie/" title="Previous Post: 方法的重载与覆写的区别">&laquo; 方法的重载与覆写的区别</a>
+        <a class="basic-alignment left" href="/blog/2014/02/21/file-separator/" title="Previous Post: File.separator表示分隔符避免跨平台操作文件错误">&laquo; File.separator表示分隔符避免跨平台操作文件错误</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2013/11/14/abstract-class/" title="Next Post: 抽象类">抽象类 &raquo;</a>
       
     </p>
   </footer>
@@ -218,8 +236,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://z420.github.io/blog/2013/11/14/final-tips/';
-        var disqus_url = 'http://z420.github.io/blog/2013/11/14/final-tips/';
+        var disqus_identifier = 'http://z420.github.io/blog/2014/02/21/delete-file/';
+        var disqus_url = 'http://z420.github.io/blog/2014/02/21/delete-file/';
         var disqus_script = 'embed.js';
       
     (function () {

@@ -4,7 +4,7 @@
   <title><![CDATA[Mz's Blog]]></title>
   <link href="http://z420.github.io/atom.xml" rel="self"/>
   <link href="http://z420.github.io/"/>
-  <updated>2014-02-21T10:47:42+08:00</updated>
+  <updated>2014-02-21T10:55:07+08:00</updated>
   <id>http://z420.github.io/</id>
   <author>
     <name><![CDATA[Mz]]></name>
@@ -12,6 +12,35 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[文件删除操作]]></title>
+    <link href="http://z420.github.io/blog/2014/02/21/delete-file/"/>
+    <updated>2014-02-21T10:50:00+08:00</updated>
+    <id>http://z420.github.io/blog/2014/02/21/delete-file</id>
+    <content type="html"><![CDATA[
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>import java.io.*;
+</span><span class='line'>public class FileDemo02 {
+</span><span class='line'>  public static void main(String[] args){
+</span><span class='line'>      File f = new File("d:" + File.separator + "test.txt");
+</span><span class='line'>      if(f.exists()){  //判断文件是否存在
+</span><span class='line'>          f.delete();
+</span><span class='line'>      }
+</span><span class='line'>  }
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[File.separator表示分隔符避免跨平台操作文件错误]]></title>
@@ -1919,17 +1948,6 @@ Thread类是在java.lang包中定义的，一个类只要继承了Thread类，�
 </span><span class='line'>  }
 </span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[使用final关键字的注意事项]]></title>
-    <link href="http://z420.github.io/blog/2013/11/14/final-tips/"/>
-    <updated>2013-11-14T22:16:00+08:00</updated>
-    <id>http://z420.github.io/blog/2013/11/14/final-tips</id>
-    <content type="html"><![CDATA[<p>使用final声明的类不能有子类。 <br/>
-使用final声明的方法不能被子类所覆写。<br/>
-使用final声明的变量即成为常量，常量不可以修改。</p>
 ]]></content>
   </entry>
   
